@@ -1,0 +1,36 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: hpc-hackathon-leaderboard-backend:latest
+    container_name: hpc-leaderboard-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "sqlite:////data/leaderboard.db"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      ADMIN_JWT_SECRET: "${ADMIN_JWT_SECRET}"
+      CORS_ORIGINS: "http://localhost:3000"
+      TEAMS_SEED_JSON: "${TEAMS_SEED_JSON}"
+    volumes:
+      - leaderboard_data:/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: hpc-hackathon-leaderboard-frontend:latest
+    container_name: hpc-leaderboard-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    environment:
+      BACKEND_INTERNAL_URL: "http://backend:8000"
+      NEXT_PUBLIC_APP_NAME: "HCMUT HPC Summer School Mini Hackathon"
+
+volumes:
+  leaderboard_data:

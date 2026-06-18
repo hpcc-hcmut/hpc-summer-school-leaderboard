@@ -1,0 +1,21 @@
+{
+  "files": [
+    "src/train.py",
+    "src/model.py",
+    "src/dataset.py",
+    "src/utils.py",
+    "src/__init__.py",
+    "configs/train_bs32.yaml",
+    "configs/train_bs64.yaml",
+    "configs/model_resnet50.yaml",
+    "slurm/train_gpu_current.slurm",
+    "slurm/train_cpu_only.slurm",
+    "slurm/train_multi_gpu.slurm",
+    "results/comparison.csv",
+    "results/gpu_summary_bs32.csv",
+    "results/profiler_output.json",
+    "requirements.txt",
+    "README.md",
+    "setup.py"
+  ]
+}
