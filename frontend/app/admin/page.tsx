@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import AdminRunsTable from "@/components/AdminRunsTable";
 import LogoutButton from "./LogoutButton";
 
@@ -18,8 +19,9 @@ export default async function AdminPage() {
       <nav className="navbar">
         <div className="container navbar-inner">
           <Link href="/" className="navbar-logo" style={{ textDecoration: "none" }}>
-            <span className="school">HCMUT · HPC Summer School</span>
-            <span className="title">Admin Dashboard</span>
+            <Image src="/logos/hcmut-hpc-school-logo-final.png" alt="HPC School Logo" width={120} height={40} priority />
+            <div style={{ width: 1, height: 24, backgroundColor: "var(--border-default)", marginLeft: "var(--spacing-1)", marginRight: "var(--spacing-1)" }} />
+            <span className="text-title" style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)" }}>Admin Dashboard</span>
           </Link>
           <div className="navbar-right">
             <Link href="/" className="btn btn-ghost" id="view-leaderboard-btn">
@@ -30,7 +32,7 @@ export default async function AdminPage() {
         </div>
       </nav>
 
-      <main className="container">
+      <main className="container" style={{ paddingTop: "var(--spacing-8)", paddingBottom: "var(--spacing-12)" }}>
         <div className="admin-header">
           <div
             style={{
