@@ -5,6 +5,7 @@ import { fetchAdminRuns, deleteRun, restoreRun } from "@/lib/api";
 import ScoreBadge from "./ScoreBadge";
 import RunDetailDrawer from "./RunDetailDrawer";
 import { formatDate, formatDuration } from "@/lib/format";
+import { RefreshCw, Search, Eye, Trash2, Undo2 } from "lucide-react";
 
 export default function AdminRunsTable() {
   const [items, setItems] = useState<AdminRunItem[]>([]);
@@ -60,134 +61,98 @@ export default function AdminRunsTable() {
 
   return (
     <>
-      {/* Filters */}
-      <div className="admin-filters">
-        <input
-          id="team-filter-input"
-          className="filter-input"
-          placeholder="Filter by team ID…"
-          value={teamFilter}
-          onChange={(e) => setTeamFilter(e.target.value)}
-        />
-        <label className="filter-checkbox">
+      <div style={{ display: "flex", gap: "var(--spacing-3)", flexWrap: "wrap", alignItems: "center", marginBottom: "var(--spacing-6)" }}>
+        <div style={{ position: "relative" }}>
+          <Search size={16} className="text-muted" style={{ position: "absolute", left: 12, top: 12 }} />
+          <input
+            id="team-filter-input"
+            className="input-field"
+            style={{ paddingLeft: 36, width: 240 }}
+            placeholder="Filter by team ID…"
+            value={teamFilter}
+            onChange={(e) => setTeamFilter(e.target.value)}
+          />
+        </div>
+        <label style={{ display: "flex", alignItems: "center", gap: "var(--spacing-2)", cursor: "pointer", color: "var(--text-secondary)" }} className="text-utility">
           <input
             type="checkbox"
             checked={includeDeleted}
             onChange={(e) => setIncludeDeleted(e.target.checked)}
-            id="include-deleted-checkbox"
+            style={{ width: 16, height: 16 }}
           />
           Show deleted
         </label>
-        <button className="btn btn-ghost" onClick={load} id="refresh-admin-btn">
-          🔄 Refresh
+        <button className="btn btn-ghost" onClick={load}>
+          <RefreshCw size={16} /> Refresh
         </button>
-        <span style={{ marginLeft: "auto", fontSize: 12, color: "var(--text-muted)" }}>
+        <span className="text-utility text-muted" style={{ marginLeft: "auto" }}>
           {total} records
         </span>
       </div>
 
-      {/* Table */}
       {loading ? (
-        <div style={{ textAlign: "center", padding: 48 }}>
-          <div className="spinner" />
+        <div style={{ textAlign: "center", padding: "var(--spacing-12)" }}>
+          <RefreshCw size={24} className="text-primary" style={{ animation: "spin 1s linear infinite" }} />
         </div>
       ) : items.length === 0 ? (
-        <div className="empty-state">
-          <div className="icon">📭</div>
-          <p>No submissions found</p>
+        <div className="glass-card" style={{ padding: "var(--spacing-8)", textAlign: "center" }}>
+          <p className="text-secondary">No submissions found.</p>
         </div>
       ) : (
-        <div className="table-wrap">
+        <div className="table-wrap glass-card">
           <table>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Team</th>
-                <th>Score</th>
-                <th>C / E / W / F</th>
-                <th>Runtime</th>
-                <th>LLM</th>
-                <th>Models</th>
-                <th>Slurm Job</th>
-                <th>Status</th>
-                <th>Created</th>
-                <th>Actions</th>
+                <th className="text-table-header">ID</th>
+                <th className="text-table-header">Team</th>
+                <th className="text-table-header">Score</th>
+                <th className="text-table-header">C / E / W / F</th>
+                <th className="text-table-header">Runtime</th>
+                <th className="text-table-header">Models</th>
+                <th className="text-table-header">Status</th>
+                <th className="text-table-header">Created</th>
+                <th className="text-table-header">Actions</th>
               </tr>
             </thead>
             <tbody>
               {items.map((item) => (
-                <tr
-                  key={item.submission_id}
-                  style={{ opacity: item.is_deleted ? 0.45 : 1 }}
-                >
-                  <td className="mono">#{item.submission_id}</td>
+                <tr key={item.submission_id} style={{ opacity: item.is_deleted ? 0.45 : 1 }}>
+                  <td className="text-mono text-muted">#{item.submission_id}</td>
                   <td>
-                    <div className="team-name-cell">{item.team_name}</div>
-                    <div className="team-id-sub">{item.team_id}</div>
+                    <div className="text-table-body" style={{ fontWeight: 600 }}>{item.team_name}</div>
+                    <div className="text-utility text-muted" style={{ fontSize: 10 }}>{item.team_id}</div>
                   </td>
-                  <td>
-                    <ScoreBadge score={item.score} />
+                  <td><ScoreBadge score={item.score} /></td>
+                  <td className="text-mono text-secondary" style={{ fontSize: 12 }}>
+                    {item.correctness.toFixed(0)} / {item.evidence.toFixed(0)} / {item.workflow.toFixed(0)} / {item.efficiency.toFixed(0)}
                   </td>
-                  <td
-                    className="mono"
-                    style={{ fontSize: 11, color: "var(--text-secondary)" }}
-                  >
-                    {item.correctness.toFixed(0)}/{item.evidence.toFixed(0)}/
-                    {item.workflow.toFixed(0)}/{item.efficiency.toFixed(0)}
-                  </td>
-                  <td className="mono">{formatDuration(item.runtime_sec)}</td>
-                  <td className="mono">{item.llm_calls ?? "—"}</td>
+                  <td className="text-mono text-secondary">{formatDuration(item.runtime_sec)}</td>
                   <td>
                     {item.models_used.slice(0, 2).map((m) => (
-                      <span className="model-pill" key={m}>
-                        {m}
-                      </span>
+                      <span className="badge badge-primary" key={m} style={{ fontSize: 10, padding: "2px 6px", marginRight: 4 }}>{m}</span>
                     ))}
                     {item.models_used.length > 2 && (
-                      <span className="model-pill">+{item.models_used.length - 2}</span>
+                      <span className="text-utility text-muted">+{item.models_used.length - 2}</span>
                     )}
                   </td>
-                  <td className="mono" style={{ fontSize: 11 }}>
-                    {item.slurm_job_id ?? "—"}
-                  </td>
                   <td>
-                    <span
-                      className={`status-badge ${item.is_deleted ? "deleted" : item.status}`}
-                    >
+                    <span className={`badge badge-${item.is_deleted ? "danger" : (item.status === "scored" ? "success" : "warning")}`}>
                       {item.is_deleted ? "deleted" : item.status}
                     </span>
                   </td>
-                  <td className="mono" style={{ whiteSpace: "nowrap", fontSize: 11 }}>
-                    {formatDate(item.created_at)}
-                  </td>
+                  <td className="text-mono text-secondary" style={{ fontSize: 11 }}>{formatDate(item.created_at)}</td>
                   <td>
-                    <div style={{ display: "flex", gap: 6 }}>
-                      <button
-                        className="btn btn-ghost"
-                        style={{ padding: "4px 8px", fontSize: 11 }}
-                        onClick={() => setDrawerSubId(item.submission_id)}
-                        id={`view-run-${item.submission_id}`}
-                      >
-                        View
+                    <div style={{ display: "flex", gap: "var(--spacing-1)" }}>
+                      <button className="btn btn-ghost" style={{ padding: "6px 8px" }} onClick={() => setDrawerSubId(item.submission_id)}>
+                        <Eye size={14} />
                       </button>
                       {item.is_deleted ? (
-                        <button
-                          className="btn btn-success"
-                          style={{ padding: "4px 8px", fontSize: 11 }}
-                          onClick={() => handleRestore(item.submission_id)}
-                          disabled={actionLoading === item.submission_id}
-                          id={`restore-run-${item.submission_id}`}
-                        >
-                          {actionLoading === item.submission_id ? "…" : "Restore"}
+                        <button className="btn btn-success" style={{ padding: "6px 8px" }} onClick={() => handleRestore(item.submission_id)} disabled={actionLoading === item.submission_id}>
+                          <Undo2 size={14} />
                         </button>
                       ) : (
-                        <button
-                          className="btn btn-danger"
-                          style={{ padding: "4px 8px", fontSize: 11 }}
-                          onClick={() => setConfirmDeleteId(item.submission_id)}
-                          id={`delete-run-${item.submission_id}`}
-                        >
-                          Delete
+                        <button className="btn btn-danger" style={{ padding: "6px 8px" }} onClick={() => setConfirmDeleteId(item.submission_id)}>
+                          <Trash2 size={14} />
                         </button>
                       )}
                     </div>
@@ -199,37 +164,18 @@ export default function AdminRunsTable() {
         </div>
       )}
 
-      {/* Run detail drawer */}
-      {drawerSubId !== null && (
-        <RunDetailDrawer
-          submissionId={drawerSubId}
-          onClose={() => setDrawerSubId(null)}
-        />
-      )}
+      {drawerSubId !== null && <RunDetailDrawer submissionId={drawerSubId} onClose={() => setDrawerSubId(null)} />}
 
-      {/* Confirm delete dialog */}
       {confirmDeleteId !== null && (
-        <div className="dialog-overlay">
-          <div className="dialog-card">
-            <div className="dialog-title">🗑️ Delete Submission</div>
-            <div className="dialog-body">
-              Are you sure you want to soft-delete submission #{confirmDeleteId}?<br />
-              It will be hidden from the public leaderboard but can be restored.
-            </div>
-            <div className="dialog-actions">
-              <button
-                className="btn btn-ghost"
-                onClick={() => setConfirmDeleteId(null)}
-                id="cancel-delete-btn"
-              >
-                Cancel
-              </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => handleDelete(confirmDeleteId)}
-                disabled={actionLoading === confirmDeleteId}
-                id="confirm-delete-btn"
-              >
+        <div className="drawer-overlay" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div className="data-panel" style={{ padding: "var(--spacing-6)", maxWidth: 400 }}>
+            <h3 className="text-title" style={{ fontSize: 18, marginBottom: "var(--spacing-4)" }}>Delete Submission</h3>
+            <p className="text-secondary" style={{ marginBottom: "var(--spacing-6)" }}>
+              Are you sure you want to soft-delete submission #{confirmDeleteId}? It will be hidden from the public leaderboard but can be restored.
+            </p>
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: "var(--spacing-3)" }}>
+              <button className="btn btn-ghost" onClick={() => setConfirmDeleteId(null)}>Cancel</button>
+              <button className="btn btn-danger" onClick={() => handleDelete(confirmDeleteId)} disabled={actionLoading === confirmDeleteId}>
                 {actionLoading === confirmDeleteId ? "Deleting…" : "Delete"}
               </button>
             </div>

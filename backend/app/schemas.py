@@ -152,6 +152,33 @@ class LeaderboardResponse(BaseModel):
     teams: list[LeaderboardTeam]
 
 
+# ---- Public Leaderboard / Telemetry Sphere ----
+
+class TeamSphereNode(BaseModel):
+    teamId: str
+    teamName: str
+    rank: int
+    score: float
+    lastRunStatus: str  # "completed" | "running" | "pending" | "failed"
+    runtimeSeconds: float
+    gpuSeconds: float
+    numAgents: int
+
+
+class ClusterSphereData(BaseModel):
+    runningJobs: int
+    pendingJobs: int
+    completedRuns: int
+    failedRuns: int
+    teams: list[TeamSphereNode]
+
+
+class PublicLeaderboardResponse(BaseModel):
+    updated_at: str
+    sphere: ClusterSphereData
+    teams: list[LeaderboardTeam]
+
+
 # ---- Run detail ----
 
 class RunDetailResponse(BaseModel):

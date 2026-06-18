@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import TelemetryBackground from "@/components/TelemetryBackground";
 
 export const metadata: Metadata = {
   title: "HPC Summer School Mini Hackathon Leaderboard",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <TelemetryBackground />
+        {children}
+      </body>
     </html>
   );
 }

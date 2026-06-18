@@ -17,6 +17,28 @@ export interface LeaderboardTeam {
 export interface LeaderboardData {
   updated_at: string;
   teams: LeaderboardTeam[];
+  sphere?: ClusterSphereData;
+}
+
+export type RunStatus = "completed" | "running" | "pending" | "failed";
+
+export interface TeamSphereNode {
+  teamId: string;
+  teamName: string;
+  rank: number;
+  score: number;
+  lastRunStatus: RunStatus;
+  runtimeSeconds: number;
+  gpuSeconds: number;
+  numAgents: number;
+}
+
+export interface ClusterSphereData {
+  runningJobs: number;
+  pendingJobs: number;
+  completedRuns: number;
+  failedRuns: number;
+  teams: TeamSphereNode[];
 }
 
 export interface ScoreBreakdown {
