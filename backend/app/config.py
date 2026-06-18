@@ -4,7 +4,7 @@ from functools import lru_cache
 
 class Settings(BaseSettings):
     database_url: str = "sqlite:////data/leaderboard.db"
-    admin_password: str = "admin"
+    admin_password: str = "hpcc@school"
     admin_jwt_secret: str = "change-me-secret"
     admin_jwt_expire_minutes: int = 720
     benchmark_repo_index_path: str = "/app/ground_truth/repo_index.json"

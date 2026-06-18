@@ -121,6 +121,12 @@ jobs:
           docker pull $IMAGE_REPO/backend:latest
           docker pull $IMAGE_REPO/frontend:latest
 
+      - name: Create .env file
+        run: |
+          echo "ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}" >> .env
+          echo "ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }}" >> .env
+          echo "TEAMS_SEED_JSON=${{ secrets.TEAMS_SEED_JSON }}" >> .env
+
       - name: Deploy with Docker Compose
         run: |
           docker compose -f docker-compose.production.yml down --remove-orphans
