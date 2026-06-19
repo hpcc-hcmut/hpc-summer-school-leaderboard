@@ -1,39 +1,87 @@
 {
   "main_entrypoint": {
-    "accepted": ["src/train.py"],
+    "accepted": [
+      "evidence/repo/src/train.py",
+      "src/train.py",
+      "train.py"
+    ],
     "points": 5
   },
   "framework": {
-    "accepted": ["pytorch", "torch"],
+    "accepted": [
+      "pytorch",
+      "torch",
+      "torchvision",
+      "pytorch/torchvision",
+      "pytorch torchvision"
+    ],
     "points": 5
   },
   "workload_type": {
-    "accepted": ["image_classification_training", "training", "image_classification"],
+    "accepted": [
+      "deep_learning_training",
+      "deep_learning",
+      "image_classification_training",
+      "image_classification",
+      "training"
+    ],
     "points": 3
   },
   "model_family": {
-    "accepted": ["resnet", "resnet50", "resnet-50"],
+    "accepted": [
+      "custom cifar resnet",
+      "cifar resnet",
+      "resnet",
+      "resnet18",
+      "resnet34",
+      "resnet50",
+      "resnet101",
+      "resnet152",
+      "resnet-18",
+      "resnet-34",
+      "resnet-50",
+      "resnet-101",
+      "resnet-152"
+    ],
     "points": 3
   },
   "dataset_type": {
-    "accepted": ["image_folder", "imagefolder", "imagenet_style"],
+    "accepted": [
+      "cifar-100 imagefolder",
+      "cifar100 imagefolder",
+      "cifar100_imagefolder",
+      "image_folder",
+      "imagefolder",
+      "imagenet_style",
+      "torchvision imagefolder"
+    ],
     "points": 3
   },
   "uses_gpu": {
-    "accepted": [true],
+    "accepted": [
+      true
+    ],
     "points": 2
   },
   "primary_bottleneck": {
-    "accepted": ["cpu_data_loading", "storage_io", "data_loading"],
+    "accepted": [
+      "gpu_compute",
+      "compute",
+      "gpu",
+      "gpu_utilization",
+      "cuda_compute"
+    ],
     "points": 8
   },
   "recommended_gpu_count": {
-    "accepted": [1],
+    "accepted": [
+      1
+    ],
     "points": 5
   },
   "recommended_cpus_per_task": {
     "min": 4,
-    "max": 8,
+    "max": 4,
     "points": 3
   },
   "recommended_time_limit_minutes": {
@@ -42,18 +90,36 @@
     "points": 2
   },
   "required_evidence_files": [
-    "src/train.py",
-    "configs/train_bs32.yaml",
-    "slurm/train_gpu_current.slurm",
-    "results/comparison.csv",
-    "results/gpu_summary_bs32.csv"
+    "evidence/repo/src/train.py",
+    "evidence/repo/slurm/train-one.slurm",
+    "evidence/repo/src/data/datasets.py",
+    "evidence/repo/src/data/prepare_cifar100_imagefolder.py",
+    "evidence/repo/src/models/resnet.py",
+    "evidence/repo/src/models/registry.py",
+    "evidence/repo/src/utils/config.py",
+    "evidence/repo/src/engine/trainer.py",
+    "evidence/repo/src/utils/metrics.py",
+    "evidence/repo/slurm/run-benchmark-array.slurm",
+    "evidence/results/comparison.csv",
+    "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv"
   ],
   "forbidden_claims": [
     "requires A100",
+    "requires an A100",
+    "A100 is required",
+    "requires V100",
+    "requires a V100",
+    "V100 is required",
+    "requires H100",
+    "requires an H100",
+    "H100 is required",
     "requires multi-GPU",
+    "requires multi GPU",
+    "requires multiple GPUs",
+    "multi-GPU is required",
     "exact VRAM can be determined from source code alone",
     "GPU is always the bottleneck",
-    "requires V100",
-    "requires H100"
+    "CPU data loading is the primary bottleneck",
+    "storage I/O is the primary bottleneck"
   ]
 }
