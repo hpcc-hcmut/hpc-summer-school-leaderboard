@@ -66,10 +66,26 @@ class BottleneckAnalysis(BaseModel):
     logging_checkpoint: Optional[str] = None
 
 
+class QAEvidenceItem(BaseModel):
+    file: Optional[str] = None
+    lines: Optional[list[int]] = None
+    reason: Optional[str] = None
+
+
+class QASubmittedAnswer(BaseModel):
+    question_id: str
+    difficulty: Optional[str] = None
+    question: Optional[str] = None
+    answer: Optional[str] = None
+    evidence: Optional[list[QAEvidenceItem]] = None
+    confidence: Optional[str] = None
+
+
 class Answer(BaseModel):
     repository_summary: Optional[RepositorySummary] = None
     resource_recommendation: Optional[ResourceRecommendation] = None
     bottleneck_analysis: Optional[BottleneckAnalysis] = None
+    answers: Optional[list[QASubmittedAnswer]] = None
     evidence: Optional[list[EvidenceItem]] = None
     uncertainty: Optional[list[str]] = None
     validation_plan: Optional[list[str]] = None
@@ -113,6 +129,16 @@ class SubmissionRequest(BaseModel):
 
 # ---- Submission response ----
 
+class QADetailItem(BaseModel):
+    question_id: str
+    score: float
+    max_score: float
+    answer_ok: bool
+    evidence_ok: bool
+    submitted_evidence_files: list[str]
+    required_evidence_files: list[str]
+
+
 class ScoreBreakdown(BaseModel):
     correctness: float
     evidence: float
@@ -127,6 +153,10 @@ class SubmissionResponse(BaseModel):
     rank: int
     breakdown: ScoreBreakdown
     messages: list[str]
+    legacy_score: Optional[float] = None
+    qa_score: Optional[float] = None
+    final_score: Optional[float] = None
+    qa_details: Optional[list[QADetailItem]] = None
 
 
 # ---- Leaderboard ----
@@ -193,6 +223,10 @@ class RunDetailResponse(BaseModel):
     messages: list[str]
     created_at: str
     status: str
+    legacy_score: Optional[float] = None
+    qa_score: Optional[float] = None
+    final_score: Optional[float] = None
+    qa_details: Optional[list[QADetailItem]] = None
 
 
 # ---- Admin ----

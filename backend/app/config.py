@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     admin_jwt_expire_minutes: int = 720
     benchmark_repo_index_path: str = "/app/ground_truth/repo_index.json"
     ground_truth_path: str = "/app/ground_truth/ground_truth.json"
+    ground_truth_qa_path: str = "/app/ground_truth/ground_truth_qa_answers_public.json"
     cors_origins: str = "http://localhost:3000"
     teams_seed_json: str = ""
     max_submissions_per_team: int = 10

@@ -215,4 +215,8 @@ def get_run(submission_id: int, session: Session = Depends(get_session)):
         messages=json.loads(sub.messages_json),
         created_at=sub.created_at,
         status=sub.status,
+        legacy_score=sub.legacy_score if sub.legacy_score is not None else sub.total_score,
+        qa_score=sub.qa_score if sub.qa_score is not None else 0.0,
+        final_score=sub.final_score if sub.final_score is not None else sub.total_score,
+        qa_details=json.loads(sub.qa_details_json) if sub.qa_details_json else [],
     )

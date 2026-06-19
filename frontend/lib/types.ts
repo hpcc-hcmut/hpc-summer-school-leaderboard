@@ -48,6 +48,16 @@ export interface ScoreBreakdown {
   efficiency: number;
 }
 
+export interface QADetailItem {
+  question_id: string;
+  score: number;
+  max_score: number;
+  answer_ok: boolean;
+  evidence_ok: boolean;
+  submitted_evidence_files: string[];
+  required_evidence_files: string[];
+}
+
 export interface RunDetail {
   submission_id: number;
   team_id: string;
@@ -60,6 +70,10 @@ export interface RunDetail {
   messages: string[];
   created_at: string;
   status: string;
+  legacy_score?: number;
+  qa_score?: number;
+  final_score?: number;
+  qa_details?: QADetailItem[];
 }
 
 export interface AdminRunItem {

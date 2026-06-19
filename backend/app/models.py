@@ -30,6 +30,11 @@ class Submission(SQLModel, table=True):
     workflow_score: float = Field(default=0.0)
     efficiency_score: float = Field(default=0.0)
 
+    legacy_score: Optional[float] = None
+    qa_score: Optional[float] = None
+    final_score: Optional[float] = None
+    qa_details_json: Optional[str] = None
+
     runtime_sec: Optional[float] = None
     llm_calls: Optional[int] = None
     estimated_input_tokens: Optional[int] = None

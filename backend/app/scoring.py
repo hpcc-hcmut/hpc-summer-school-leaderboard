@@ -22,22 +22,125 @@ from .config import settings
 
 _ground_truth: dict = {}
 _repo_index: set[str] = set()
+_ground_truth_qa: dict = {}
+
+
+def _resolve_path(path_str: str) -> Path:
+    p = Path(path_str)
+    if p.exists():
+        return p
+    if path_str.startswith("/app/"):
+        rel_p = Path(path_str[5:])
+        if rel_p.exists():
+            return rel_p
+    current_file_parent = Path(__file__).resolve().parent.parent
+    p_in_pkg = current_file_parent / path_str.lstrip("/")
+    if p_in_pkg.exists():
+        return p_in_pkg
+    if path_str.startswith("/app/"):
+        p_in_pkg_rel = current_file_parent / path_str[5:]
+        if p_in_pkg_rel.exists():
+            return p_in_pkg_rel
+    return p
 
 
 def _load_data():
-    global _ground_truth, _repo_index
-    gt_path = Path(settings.ground_truth_path)
+    global _ground_truth, _repo_index, _ground_truth_qa
+    gt_path = _resolve_path(settings.ground_truth_path)
     if gt_path.exists():
         with open(gt_path) as f:
             _ground_truth = json.load(f)
-    ri_path = Path(settings.benchmark_repo_index_path)
+    ri_path = _resolve_path(settings.benchmark_repo_index_path)
     if ri_path.exists():
         with open(ri_path) as f:
             data = json.load(f)
             _repo_index = set(data.get("files", []))
+    gt_qa_path = _resolve_path(settings.ground_truth_qa_path)
+    if gt_qa_path.exists():
+        with open(gt_qa_path) as f:
+            _ground_truth_qa = json.load(f)
 
 
 _load_data()
+
+
+def normalize_text(value: object) -> str:
+    text = str(value or "").lower()
+    text = text.replace("`", "")
+    text = text.replace("_", " ")
+    text = text.replace("-", " ")
+    return " ".join(text.split())
+
+
+def score_qa_answers(payload: dict, qa_ground_truth: dict) -> dict:
+    submitted = payload.get("answer", {}).get("answers", [])
+    if not isinstance(submitted, list):
+        submitted = []
+
+    by_id = {
+        str(item.get("question_id")): item
+        for item in submitted
+        if isinstance(item, dict) and item.get("question_id")
+    }
+
+    total = 0.0
+    details = []
+    qa_points = float(qa_ground_truth.get("scoring", {}).get("qa_points", 40))
+    questions = qa_ground_truth.get("questions", [])
+    per_question = qa_points / len(questions) if questions else 0.0
+    answer_points = per_question * 0.70
+    evidence_points = per_question * 0.30
+
+    for expected in questions:
+        qid = str(expected["question_id"])
+        item = by_id.get(qid, {})
+        submitted_answer = normalize_text(item.get("answer", ""))
+        expected_answer = normalize_text(expected.get("expected_answer", ""))
+
+        answer_ok = expected_answer and expected_answer in submitted_answer
+
+        if not answer_ok:
+            accepted = [
+                normalize_text(value)
+                for value in expected.get("accepted_answer_contains", [])
+                if normalize_text(value)
+            ]
+            answer_ok = any(value in submitted_answer for value in accepted)
+
+        evidence_items = item.get("evidence", [])
+        submitted_files = {
+            str(ev.get("file", "")).lstrip("./")
+            for ev in evidence_items
+            if isinstance(ev, dict)
+        }
+        required_files = {
+            str(path).lstrip("./")
+            for path in expected.get("required_evidence_files", [])
+        }
+        evidence_ok = bool(submitted_files & required_files)
+
+        score = 0.0
+        if answer_ok:
+            score += answer_points
+        if evidence_ok:
+            score += evidence_points
+
+        total += score
+        details.append({
+            "question_id": qid,
+            "score": round(score, 4),
+            "max_score": round(per_question, 4),
+            "answer_ok": answer_ok,
+            "evidence_ok": evidence_ok,
+            "submitted_evidence_files": sorted(submitted_files),
+            "required_evidence_files": sorted(required_files),
+        })
+
+    return {
+        "qa_score": round(total, 4),
+        "qa_max_score": qa_points,
+        "qa_details": details,
+    }
 
 
 def _norm(val: Any) -> str:
@@ -445,14 +548,26 @@ def score_submission(submission: dict) -> tuple[dict, list[str]]:
     w_score, w_msgs = score_workflow(metadata, trace)
     ef_score, ef_msgs = score_efficiency(metadata)
 
-    total = round(c_score + e_score + w_score + ef_score, 2)
+    legacy_score = round(c_score + e_score + w_score + ef_score, 2)
+
+    qa_result = score_qa_answers(submission, _ground_truth_qa)
+    qa_score = qa_result["qa_score"]
+    qa_details = qa_result["qa_details"]
+
+    # Rebalanced score
+    final_score = qa_score + (c_score * 25.0 / 40.0) + (e_score * 15.0 / 25.0) + (w_score * 12.0 / 20.0) + (ef_score * 8.0 / 15.0)
+    final_score = round(final_score, 2)
 
     breakdown = {
         "correctness": c_score,
         "evidence": e_score,
         "workflow": w_score,
         "efficiency": ef_score,
-        "total": total,
+        "legacy_score": legacy_score,
+        "qa_score": qa_score,
+        "final_score": final_score,
+        "qa_details": qa_details,
+        "total": final_score,
     }
 
     all_msgs = c_msgs + e_msgs + w_msgs + ef_msgs
