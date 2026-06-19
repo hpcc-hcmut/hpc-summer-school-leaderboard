@@ -81,6 +81,9 @@ def rescore_all_submissions(session: Session):
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    print(f"[config] datasets mode     : {settings.datasets}")
+    print(f"[config] ground_truth_path : {settings.ground_truth_path}")
+    print(f"[config] ground_truth_qa   : {settings.ground_truth_qa_path}")
     create_db_and_tables()
     with Session(engine) as session:
         migrate_db(session)

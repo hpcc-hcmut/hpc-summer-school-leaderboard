@@ -22,17 +22,8 @@
             "expected_answer": "`slurm/prepare-data.slurm` prepares the data on the compute partition and does not request `--gres=gpu`.",
             "accepted_answer_contains": [
                 "`slurm/prepare-data.slurm` prepares the data on the compute partition and does not request `--gres=gpu`.",
-                "`slurm/prepare-data.slurm` prepares the data on the compute partition and does not request `--gres=gpu`",
                 "evidence/repo/slurm/prepare-data.slurm",
-                "slurm/prepare-data.slurm prepares the data on the compute partition and does not request --gres=gpu",
-                "slurm/prepare-data.slurm prepares the data on the compute partition and does",
-                "slurm/prepare-data.slurm",
-                "prepare-data.slurm",
-                "--gres=gpu",
-                "slurm/prepare-data.slurm prepares the data on the compute partition",
-                "does not request --gres=gpu",
-                "slurm/prepare-data.slurm prepares the data",
-                "slurm/prepare-data.slurm prepares the data on"
+                "slurm/prepare-data.slurm prepares the data on the compute partition and does not request --gres=gpu."
             ],
             "required_evidence_files": [
                 "evidence/repo/slurm/prepare-data.slurm"
@@ -55,18 +46,8 @@
             "expected_answer": "It runs `python3 src/data/prepare_cifar100_imagefolder.py` with download root, output directory, validation count, and seed arguments.",
             "accepted_answer_contains": [
                 "It runs `python3 src/data/prepare_cifar100_imagefolder.py` with download root, output directory, validation count, and seed arguments.",
-                "runs `python3 src/data/prepare_cifar100_imagefolder.py` with download root, output directory, validation count, and seed arguments",
                 "evidence/repo/slurm/prepare-data.slurm",
-                "runs python3 src/data/prepare_cifar100_imagefolder.py with download root, output directory, validation count, and seed arguments",
-                "runs python3 src/data/prepare_cifar100_imagefolder.py with download root, output directory, validation",
-                "src/data/prepare_cifar100_imagefolder.py",
-                "prepare_cifar100_imagefolder.py",
-                "runs python3 src/data/prepare_cifar100_imagefolder.py with download root",
-                "output directory",
-                "seed arguments",
-                "runs python3 src/data/prepare_cifar100_imagefolder.py",
-                "runs python3 src/data/prepare_cifar100_imagefolder.py with download",
-                "runs python3 src/data/prepare_cifar100_imagefolder.py with download root, output"
+                "It runs python3 src/data/prepare_cifar100_imagefolder.py with download root, output directory, validation count, and seed arguments."
             ],
             "required_evidence_files": [
                 "evidence/repo/slurm/prepare-data.slurm"
@@ -89,20 +70,8 @@
             "expected_answer": "The script shuffles CIFAR-100 train indices with `random.Random(args.seed)` before taking validation and training splits.",
             "accepted_answer_contains": [
                 "The script shuffles CIFAR-100 train indices with `random.Random(args.seed)` before taking validation and training splits.",
-                "script shuffles CIFAR-100 train indices with `random.Random(args.seed)` before taking validation and training splits",
                 "evidence/repo/src/data/prepare_cifar100_imagefolder.py",
-                "script shuffles CIFAR-100 train indices with random.Random(args.seed) before taking validation and training splits",
-                "script shuffles CIFAR-100 train indices with random.Random(args.seed) before taking",
-                "random.Random(args.seed)",
-                "script shuffles CIFAR-100 train indices with random.Random(args.seed) before taking validation",
-                "script shuffles CIFAR-100",
-                "script shuffles CIFAR-100 train",
-                "script shuffles CIFAR-100 train indices",
-                "script shuffles CIFAR-100 train indices with random.Random(args.seed)",
-                "shuffle with seed",
-                "seeded shuffle",
-                "random seed",
-                "deterministic split"
+                "The script shuffles CIFAR-100 train indices with random.Random(args.seed) before taking validation and training splits."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/prepare_cifar100_imagefolder.py"
@@ -125,17 +94,8 @@
             "expected_answer": "`prepare_cifar100_imagefolder.py` raises an error unless `--val-count` equals 5000.",
             "accepted_answer_contains": [
                 "`prepare_cifar100_imagefolder.py` raises an error unless `--val-count` equals 5000.",
-                "`prepare_cifar100_imagefolder.py` raises an error unless `--val-count` equals 5000",
                 "evidence/repo/src/data/prepare_cifar100_imagefolder.py",
-                "prepare_cifar100_imagefolder.py raises an error unless --val-count equals 5000",
-                "prepare_cifar100_imagefolder.py",
-                "--val-count",
-                "prepare_cifar100_imagefolder.py raises an error",
-                "prepare_cifar100_imagefolder.py raises an error unless",
-                "prepare_cifar100_imagefolder.py raises an error unless --val-count",
-                "val-count equals 5000",
-                "5,000 validation images",
-                "exactly 5000 validation images"
+                "prepare_cifar100_imagefolder.py raises an error unless --val-count equals 5000."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/prepare_cifar100_imagefolder.py"
@@ -158,16 +118,7 @@
             "expected_answer": "It uses the CIFAR-100 class name as a folder and saves each image under that class directory.",
             "accepted_answer_contains": [
                 "It uses the CIFAR-100 class name as a folder and saves each image under that class directory.",
-                "uses the CIFAR-100 class name as a folder and saves each image under that class directory",
-                "evidence/repo/src/data/prepare_cifar100_imagefolder.py",
-                "uses the CIFAR-100 class name as a folder",
-                "saves each image under that class directory",
-                "uses the CIFAR-100 class",
-                "uses the CIFAR-100 class name",
-                "uses the CIFAR-100 class name as",
-                "class name folder",
-                "class directory",
-                "ImageFolder-style directories"
+                "evidence/repo/src/data/prepare_cifar100_imagefolder.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/prepare_cifar100_imagefolder.py"
@@ -190,18 +141,8 @@
             "expected_answer": "`src/data/datasets.py` checks that train, val, and test contain 45,000, 5,000, and 10,000 images respectively.",
             "accepted_answer_contains": [
                 "`src/data/datasets.py` checks that train, val, and test contain 45,000, 5,000, and 10,000 images respectively.",
-                "`src/data/datasets.py` checks that train, val, and test contain 45,000, 5,000, and 10,000 images respectively",
                 "evidence/repo/src/data/datasets.py",
-                "src/data/datasets.py checks that train, val, and test contain 45,000, 5,000, and 10,000 images respectively",
-                "src/data/datasets.py checks that train, val, and test contain 45,000, 5,000",
-                "10,000 images",
-                "src/data/datasets.py",
-                "datasets.py",
-                "src/data/datasets.py checks that train",
-                "test contain 45",
-                "000 images respectively",
-                "src/data/datasets.py checks that train, val",
-                "src/data/datasets.py checks that train, val, and test contain"
+                "src/data/datasets.py checks that train, val, and test contain 45,000, 5,000, and 10,000 images respectively."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/datasets.py"
@@ -232,16 +173,7 @@
             "expected_answer": "It compares each split's classes to the train split and raises an error if they differ.",
             "accepted_answer_contains": [
                 "It compares each split's classes to the train split and raises an error if they differ.",
-                "compares each split's classes to the train split and raises an error if they differ",
-                "evidence/repo/src/data/datasets.py",
-                "compares each split's classes to the train split",
-                "raises an error if they differ",
-                "compares each split's",
-                "compares each split's classes",
-                "compares each split's classes to the train",
-                "class name folder",
-                "class directory",
-                "ImageFolder-style directories"
+                "evidence/repo/src/data/datasets.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/datasets.py"
@@ -264,18 +196,8 @@
             "expected_answer": "`load_datasets` raises an error if the train split does not have 100 class folders.",
             "accepted_answer_contains": [
                 "`load_datasets` raises an error if the train split does not have 100 class folders.",
-                "`load_datasets` raises an error if the train split does not have 100 class folders",
                 "evidence/repo/src/data/datasets.py",
-                "load_datasets raises an error if the train split does not have 100 class folders",
-                "load_datasets raises an error if the train split does not",
-                "100 class folders",
-                "load_datasets",
-                "load_datasets raises an error",
-                "load_datasets raises an error if",
-                "load_datasets raises an error if the train split",
-                "class name folder",
-                "class directory",
-                "ImageFolder-style directories"
+                "load_datasets raises an error if the train split does not have 100 class folders."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/datasets.py"
@@ -298,21 +220,8 @@
             "expected_answer": "The loaders use `pin_memory=True`, seeded workers, and persistent workers when `num_workers > 0`.",
             "accepted_answer_contains": [
                 "The loaders use `pin_memory=True`, seeded workers, and persistent workers when `num_workers > 0`.",
-                "loaders use `pin_memory=True`, seeded workers, and persistent workers when `num_workers > 0`",
                 "evidence/repo/src/data/datasets.py",
-                "loaders use pin_memory=True, seeded workers, and persistent workers when num_workers > 0",
-                "loaders use pin_memory=True, seeded workers, and persistent workers when",
-                "pin_memory=True",
-                "num_workers > 0",
-                "loaders use pin_memory=True",
-                "seeded workers",
-                "persistent workers when num_workers > 0",
-                "loaders use pin_memory=True, seeded",
-                "loaders use pin_memory=True, seeded workers",
-                "loaders use pin_memory=True, seeded workers, and persistent",
-                "pin_memory",
-                "num_workers",
-                "persistent workers"
+                "The loaders use pin_memory=True, seeded workers, and persistent workers when num_workers > 0."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/datasets.py"
@@ -335,15 +244,7 @@
             "expected_answer": "The train DataLoader is shuffled, while validation and test are not shuffled.",
             "accepted_answer_contains": [
                 "The train DataLoader is shuffled, while validation and test are not shuffled.",
-                "train DataLoader is shuffled, while validation and test are not shuffled",
-                "evidence/repo/src/data/datasets.py",
-                "train DataLoader is shuffled",
-                "train DataLoader is shuffled, while",
-                "train DataLoader is shuffled, while validation",
-                "DataLoader",
-                "train loader shuffled",
-                "validation not shuffled",
-                "test not shuffled"
+                "evidence/repo/src/data/datasets.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/datasets.py"
@@ -366,20 +267,8 @@
             "expected_answer": "The transforms use CIFAR-100 mean `(0.5071, 0.4867, 0.4408)` and std `(0.2675, 0.2565, 0.2761)`.",
             "accepted_answer_contains": [
                 "The transforms use CIFAR-100 mean `(0.5071, 0.4867, 0.4408)` and std `(0.2675, 0.2565, 0.2761)`.",
-                "transforms use CIFAR-100 mean `(0.5071, 0.4867, 0.4408)` and std `(0.2675, 0.2565, 0.2761)`",
                 "evidence/repo/src/data/transforms.py",
-                "transforms use CIFAR-100 mean (0.5071, 0.4867, 0.4408) and std (0.2675, 0.2565, 0.2761)",
-                "transforms use CIFAR-100 mean (0.5071, 0.4867, 0.4408) and std",
-                "(0.5071, 0.4867, 0.4408)",
-                "(0.2675, 0.2565, 0.2761)",
-                "transforms use CIFAR-100 mean (0.5071",
-                "std (0.2675",
-                "transforms use CIFAR-100",
-                "transforms use CIFAR-100 mean",
-                "transforms use CIFAR-100 mean (0.5071, 0.4867, 0.4408)",
-                "CIFAR-100 mean",
-                "CIFAR-100 std",
-                "normalization constants"
+                "The transforms use CIFAR-100 mean (0.5071, 0.4867, 0.4408) and std (0.2675, 0.2565, 0.2761)."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/transforms.py"
@@ -402,19 +291,7 @@
             "expected_answer": "The basic transform applies random crop with padding 4, random horizontal flip, tensor conversion, and normalization.",
             "accepted_answer_contains": [
                 "The basic transform applies random crop with padding 4, random horizontal flip, tensor conversion, and normalization.",
-                "basic transform applies random crop with padding 4, random horizontal flip, tensor conversion, and normalization",
-                "evidence/repo/src/data/transforms.py",
-                "basic transform applies random crop with padding 4, random",
-                "basic transform applies random crop with padding 4",
-                "random horizontal flip",
-                "tensor conversion",
-                "basic transform applies",
-                "basic transform applies random",
-                "basic transform applies random crop",
-                "basic transform applies random crop with padding",
-                "random crop",
-                "padding 4",
-                "horizontal flip"
+                "evidence/repo/src/data/transforms.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/transforms.py"
@@ -437,16 +314,7 @@
             "expected_answer": "Validation and test only apply tensor conversion and normalization without random crop or flip.",
             "accepted_answer_contains": [
                 "Validation and test only apply tensor conversion and normalization without random crop or flip.",
-                "Validation and test only apply tensor conversion and normalization without random crop or flip",
-                "evidence/repo/src/data/transforms.py",
-                "Validation and test only apply tensor conversion and normalization without",
-                "test only apply tensor conversion",
-                "normalization without random crop or flip",
-                "Validation and test only apply tensor",
-                "Validation and test only apply tensor conversion",
-                "tensor conversion and normalization",
-                "no random crop",
-                "no random flip"
+                "evidence/repo/src/data/transforms.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/data/transforms.py"
@@ -469,16 +337,8 @@
             "expected_answer": "The required config fields are listed in `REQUIRED_FIELDS` in `src/utils/config.py`.",
             "accepted_answer_contains": [
                 "The required config fields are listed in `REQUIRED_FIELDS` in `src/utils/config.py`.",
-                "required config fields are listed in `REQUIRED_FIELDS` in `src/utils/config.py`",
                 "evidence/repo/src/utils/config.py",
-                "required config fields are listed in REQUIRED_FIELDS in src/utils/config.py",
-                "REQUIRED_FIELDS",
-                "src/utils/config.py",
-                "config.py",
-                "required config fields",
-                "required config fields are",
-                "required config fields are listed",
-                "required config fields are listed in REQUIRED_FIELDS"
+                "The required config fields are listed in REQUIRED_FIELDS in src/utils/config.py."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/config.py"
@@ -501,16 +361,8 @@
             "expected_answer": "Config validation reports an error because `num_workers` must not exceed `cpus_per_task`.",
             "accepted_answer_contains": [
                 "Config validation reports an error because `num_workers` must not exceed `cpus_per_task`.",
-                "Config validation reports an error because `num_workers` must not exceed `cpus_per_task`",
                 "evidence/repo/src/utils/config.py",
-                "Config validation reports an error because num_workers must not exceed cpus_per_task",
-                "Config validation reports an error",
-                "num_workers",
-                "cpus_per_task",
-                "Config validation reports an error because num_workers must",
-                "num_workers must not exceed cpus_per_task",
-                "worker count exceeds CPU allocation",
-                "actual Slurm CPU allocation"
+                "Config validation reports an error because num_workers must not exceed cpus_per_task."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/config.py"
@@ -533,15 +385,7 @@
             "expected_answer": "Validation rejects it because AMP must be false for the main mini-hackathon.",
             "accepted_answer_contains": [
                 "Validation rejects it because AMP must be false for the main mini-hackathon.",
-                "Validation rejects it because AMP must be false for the main mini-hackathon",
-                "evidence/repo/src/utils/config.py",
-                "Validation rejects it",
-                "Validation rejects it because AMP",
-                "Validation rejects it because AMP must",
-                "Validation rejects it because AMP must be false",
-                "AMP must be false",
-                "AMP disabled",
-                "rejects AMP"
+                "evidence/repo/src/utils/config.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/config.py"
@@ -564,20 +408,7 @@
             "expected_answer": "Epochs, optimizer, learning rate, momentum, weight decay, scheduler, gradient accumulation, seed, and augmentation are instructor defaults.",
             "accepted_answer_contains": [
                 "Epochs, optimizer, learning rate, momentum, weight decay, scheduler, gradient accumulation, seed, and augmentation are instructor defaults.",
-                "Epochs, optimizer, learning rate, momentum, weight decay, scheduler, gradient accumulation, seed, and augmentation are instructor defaults",
-                "evidence/repo/src/utils/config.py",
-                "Epochs, optimizer, learning rate, momentum, weight decay, scheduler, gradient accumulation",
-                "learning rate",
-                "weight decay",
-                "gradient accumulation",
-                "augmentation are instructor defaults",
-                "Epochs, optimizer, learning rate",
-                "Epochs, optimizer, learning rate, momentum",
-                "Epochs, optimizer, learning rate, momentum, weight",
-                "Epochs, optimizer, learning rate, momentum, weight decay, scheduler",
-                "instructor defaults",
-                "warnings instead of failing",
-                "emits warnings"
+                "evidence/repo/src/utils/config.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/config.py"
@@ -600,16 +431,7 @@
             "expected_answer": "It emits warnings when instructor defaults differ instead of failing after the hard validation passes.",
             "accepted_answer_contains": [
                 "It emits warnings when instructor defaults differ instead of failing after the hard validation passes.",
-                "emits warnings when instructor defaults differ instead of failing after the hard validation passes",
-                "evidence/repo/src/utils/config.py",
-                "emits warnings when instructor defaults differ instead of failing",
-                "emits warnings when",
-                "emits warnings when instructor",
-                "emits warnings when instructor defaults",
-                "emits warnings when instructor defaults differ instead",
-                "instructor defaults",
-                "warnings instead of failing",
-                "emits warnings"
+                "evidence/repo/src/utils/config.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/config.py"
@@ -632,21 +454,8 @@
             "expected_answer": "`src/train.py` resolves the Slurm CPU allocation and raises an error if `num_workers` exceeds the allocated CPUs.",
             "accepted_answer_contains": [
                 "`src/train.py` resolves the Slurm CPU allocation and raises an error if `num_workers` exceeds the allocated CPUs.",
-                "`src/train.py` resolves the Slurm CPU allocation and raises an error if `num_workers` exceeds the allocated CPUs",
                 "evidence/repo/src/train.py",
-                "src/train.py resolves the Slurm CPU allocation and raises an error if num_workers exceeds the allocated CPUs",
-                "src/train.py resolves the Slurm CPU allocation and raises an error",
-                "src/train.py",
-                "train.py",
-                "num_workers",
-                "src/train.py resolves the Slurm CPU allocation",
-                "raises an error if num_workers exceeds the allocated CPUs",
-                "src/train.py resolves the Slurm",
-                "src/train.py resolves the Slurm CPU",
-                "src/train.py resolves the Slurm CPU allocation and raises",
-                "num_workers must not exceed cpus_per_task",
-                "worker count exceeds CPU allocation",
-                "actual Slurm CPU allocation"
+                "src/train.py resolves the Slurm CPU allocation and raises an error if num_workers exceeds the allocated CPUs."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/train.py"
@@ -669,17 +478,7 @@
             "expected_answer": "It returns the config value when the actual Slurm value is missing, unknown, or none.",
             "accepted_answer_contains": [
                 "It returns the config value when the actual Slurm value is missing, unknown, or none.",
-                "returns the config value when the actual Slurm value is missing, unknown, or none",
-                "evidence/repo/src/utils/slurm.py",
-                "returns the config value when the actual Slurm value",
-                "returns the config value when the actual Slurm value is missing",
-                "returns the config",
-                "returns the config value",
-                "returns the config value when",
-                "returns the config value when the actual",
-                "num_workers must not exceed cpus_per_task",
-                "worker count exceeds CPU allocation",
-                "actual Slurm CPU allocation"
+                "evidence/repo/src/utils/slurm.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/slurm.py"
@@ -702,15 +501,7 @@
             "expected_answer": "It converts the allocation to an integer and raises an error if it is not in the allowed CPU list.",
             "accepted_answer_contains": [
                 "It converts the allocation to an integer and raises an error if it is not in the allowed CPU list.",
-                "converts the allocation to an integer and raises an error if it is not in the allowed CPU list",
-                "evidence/repo/src/utils/slurm.py",
-                "converts the allocation to an integer and raises",
-                "converts the allocation to an integer",
-                "raises an error if it is not in the allowed CPU list",
-                "converts the allocation",
-                "num_workers must not exceed cpus_per_task",
-                "worker count exceeds CPU allocation",
-                "actual Slurm CPU allocation"
+                "evidence/repo/src/utils/slurm.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/slurm.py"
@@ -733,17 +524,8 @@
             "expected_answer": "`src/train.py` calls `seed_everything` before creating the CUDA device and dataloaders.",
             "accepted_answer_contains": [
                 "`src/train.py` calls `seed_everything` before creating the CUDA device and dataloaders.",
-                "`src/train.py` calls `seed_everything` before creating the CUDA device and dataloaders",
                 "evidence/repo/src/train.py",
-                "src/train.py calls seed_everything before creating the CUDA device and dataloaders",
-                "src/train.py",
-                "train.py",
-                "seed_everything",
-                "src/train.py calls seed_everything before creating the CUDA device",
-                "src/train.py calls seed_everything before",
-                "src/train.py calls seed_everything before creating",
-                "seeds CUDA",
-                "seeds DataLoader workers"
+                "src/train.py calls seed_everything before creating the CUDA device and dataloaders."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/train.py"
@@ -766,21 +548,8 @@
             "expected_answer": "`seed_everything` seeds Python, PyTorch CPU, and CUDA, while `seed_worker` seeds each DataLoader worker.",
             "accepted_answer_contains": [
                 "`seed_everything` seeds Python, PyTorch CPU, and CUDA, while `seed_worker` seeds each DataLoader worker.",
-                "`seed_everything` seeds Python, PyTorch CPU, and CUDA, while `seed_worker` seeds each DataLoader worker",
                 "evidence/repo/src/utils/seed.py",
-                "seed_everything seeds Python, PyTorch CPU, and CUDA, while seed_worker seeds each DataLoader worker",
-                "seed_everything seeds Python, PyTorch CPU, and CUDA",
-                "seed_everything",
-                "seed_worker",
-                "seed_everything seeds Python",
-                "PyTorch CPU",
-                "seed_worker seeds each DataLoader worker",
-                "seed_everything seeds Python, PyTorch",
-                "seed_everything seeds Python, PyTorch CPU",
-                "seed_everything seeds Python, PyTorch CPU, and CUDA, while",
-                "DataLoader",
-                "seeds CUDA",
-                "seeds DataLoader workers"
+                "seed_everything seeds Python, PyTorch CPU, and CUDA, while seed_worker seeds each DataLoader worker."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/seed.py"
@@ -811,21 +580,8 @@
             "expected_answer": "`src/train.py` calls `create_model` with `config[\"model_name\"]` and `config[\"num_classes\"]`.",
             "accepted_answer_contains": [
                 "`src/train.py` calls `create_model` with `config[\"model_name\"]` and `config[\"num_classes\"]`.",
-                "`src/train.py` calls `create_model` with `config[\"model_name\"]` and `config[\"num_classes\"]`",
                 "evidence/repo/src/train.py",
-                "src/train.py calls create_model with config[\"model_name\"] and config[\"num_classes\"]",
-                "src/train.py",
-                "train.py",
-                "create_model",
-                "config[\"model_name\"]",
-                "config[\"num_classes\"]",
-                "src/train.py calls create_model with config[\"model_name\"]",
-                "src/train.py calls create_model",
-                "model_name",
-                "num_classes",
-                "custom registry",
-                "model registry",
-                "allowed custom models"
+                "src/train.py calls create_model with config[\"model_name\"] and config[\"num_classes\"]."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/train.py"
@@ -848,15 +604,8 @@
             "expected_answer": "The training code imports `create_model` from `models` and constructs the model through the custom registry.",
             "accepted_answer_contains": [
                 "The training code imports `create_model` from `models` and constructs the model through the custom registry.",
-                "training code imports `create_model` from `models` and constructs the model through the custom registry",
                 "evidence/repo/src/train.py",
-                "training code imports create_model from models and constructs the model through the custom registry",
-                "training code imports create_model from models and constructs",
-                "training code imports create_model",
-                "create_model",
-                "training code imports create_model from models",
-                "constructs the model through the custom registry",
-                "training code imports"
+                "The training code imports create_model from models and constructs the model through the custom registry."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/train.py"
@@ -887,17 +636,8 @@
             "expected_answer": "`register_model` raises an error when a normalized model name is already registered.",
             "accepted_answer_contains": [
                 "`register_model` raises an error when a normalized model name is already registered.",
-                "`register_model` raises an error when a normalized model name is already registered",
                 "evidence/repo/src/models/registry.py",
-                "register_model raises an error when a normalized model name is already registered",
-                "register_model raises an error when a normalized model name is",
-                "register_model",
-                "register_model raises an error",
-                "register_model raises an error when",
-                "register_model raises an error when a normalized model",
-                "custom registry",
-                "model registry",
-                "allowed custom models"
+                "register_model raises an error when a normalized model name is already registered."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/registry.py"
@@ -920,19 +660,8 @@
             "expected_answer": "`create_model` catches a missing registry key and raises an error listing allowed custom models.",
             "accepted_answer_contains": [
                 "`create_model` catches a missing registry key and raises an error listing allowed custom models.",
-                "`create_model` catches a missing registry key and raises an error listing allowed custom models",
                 "evidence/repo/src/models/registry.py",
-                "create_model catches a missing registry key and raises an error listing allowed custom models",
-                "create_model catches a missing registry key and raises an error",
-                "create_model",
-                "create_model catches a missing registry key",
-                "raises an error listing allowed custom models",
-                "create_model catches a missing",
-                "create_model catches a missing registry",
-                "create_model catches a missing registry key and raises",
-                "custom registry",
-                "model registry",
-                "allowed custom models"
+                "create_model catches a missing registry key and raises an error listing allowed custom models."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/registry.py"
@@ -955,15 +684,8 @@
             "expected_answer": "ResNet18 and ResNet34 are built with `BasicBlock`.",
             "accepted_answer_contains": [
                 "ResNet18 and ResNet34 are built with `BasicBlock`.",
-                "ResNet18 and ResNet34 are built with `BasicBlock`",
                 "evidence/repo/src/models/resnet.py",
-                "ResNet18 and ResNet34 are built with BasicBlock",
-                "ResNet34 are built with BasicBlock",
-                "ResNet18 and ResNet34 are",
-                "ResNet18 and ResNet34 are built",
-                "BasicBlock",
-                "ResNet18",
-                "ResNet34"
+                "ResNet18 and ResNet34 are built with BasicBlock."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/resnet.py"
@@ -986,17 +708,8 @@
             "expected_answer": "ResNet50, ResNet101, and ResNet152 are built with `BottleNeck`.",
             "accepted_answer_contains": [
                 "ResNet50, ResNet101, and ResNet152 are built with `BottleNeck`.",
-                "ResNet50, ResNet101, and ResNet152 are built with `BottleNeck`",
                 "evidence/repo/src/models/resnet.py",
-                "ResNet50, ResNet101, and ResNet152 are built with BottleNeck",
-                "ResNet152 are built with BottleNeck",
-                "ResNet50, ResNet101, and ResNet152",
-                "ResNet50, ResNet101, and ResNet152 are",
-                "ResNet50, ResNet101, and ResNet152 are built",
-                "BottleNeck",
-                "ResNet50",
-                "ResNet101",
-                "ResNet152"
+                "ResNet50, ResNet101, and ResNet152 are built with BottleNeck."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/resnet.py"
@@ -1019,13 +732,7 @@
             "expected_answer": "The custom ResNet starts with a 3x3 convolution, batch normalization, and ReLU without an ImageNet-style 7x7 stem.",
             "accepted_answer_contains": [
                 "The custom ResNet starts with a 3x3 convolution, batch normalization, and ReLU without an ImageNet-style 7x7 stem.",
-                "custom ResNet starts with a 3x3 convolution, batch normalization, and ReLU without an ImageNet-style 7x7 stem",
-                "evidence/repo/src/models/resnet.py",
-                "custom ResNet starts with a 3x3 convolution, batch normalization",
-                "custom ResNet starts with a 3x3 convolution",
-                "batch normalization",
-                "ReLU without an ImageNet-style 7x7 stem",
-                "custom ResNet starts"
+                "evidence/repo/src/models/resnet.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/resnet.py"
@@ -1048,14 +755,8 @@
             "expected_answer": "The final linear layer maps from `512 * block.expansion` features to the configured number of classes.",
             "accepted_answer_contains": [
                 "The final linear layer maps from `512 * block.expansion` features to the configured number of classes.",
-                "final linear layer maps from `512 * block.expansion` features to the configured number of classes",
                 "evidence/repo/src/models/resnet.py",
-                "final linear layer maps from 512 * block.expansion features to the configured number of classes",
-                "final linear layer maps from 512 * block.expansion features",
-                "final linear layer maps",
-                "512 * block.expansion",
-                "final linear layer",
-                "final linear layer maps from 512 *"
+                "The final linear layer maps from 512 * block.expansion features to the configured number of classes."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/resnet.py"
@@ -1078,15 +779,7 @@
             "expected_answer": "Both block types create a 1x1 convolution shortcut when stride or channel dimensions do not match.",
             "accepted_answer_contains": [
                 "Both block types create a 1x1 convolution shortcut when stride or channel dimensions do not match.",
-                "Both block types create a 1x1 convolution shortcut when stride or channel dimensions do not match",
-                "evidence/repo/src/models/resnet.py",
-                "Both block types create a 1x1 convolution shortcut when stride",
-                "Both block types create",
-                "Both block types create a 1x1",
-                "Both block types create a 1x1 convolution shortcut",
-                "1x1 convolution shortcut",
-                "stride mismatch",
-                "channel dimensions differ"
+                "evidence/repo/src/models/resnet.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/resnet.py"
@@ -1117,20 +810,8 @@
             "expected_answer": "`accuracy_counts` uses `logits.topk` and counts matches for top-1 and top-5 predictions.",
             "accepted_answer_contains": [
                 "`accuracy_counts` uses `logits.topk` and counts matches for top-1 and top-5 predictions.",
-                "`accuracy_counts` uses `logits.topk` and counts matches for top-1 and top-5 predictions",
                 "evidence/repo/src/utils/metrics.py",
-                "accuracy_counts uses logits.topk and counts matches for top-1 and top-5 predictions",
-                "accuracy_counts uses logits.topk and counts matches for top-1 and top-5",
-                "accuracy_counts",
-                "logits.topk",
-                "accuracy_counts uses logits.topk",
-                "counts matches for top-1",
-                "top-5 predictions",
-                "accuracy_counts uses logits.topk and counts",
-                "accuracy_counts uses logits.topk and counts matches",
-                "accuracy_counts uses logits.topk and counts matches for top-1",
-                "top-1 accuracy",
-                "top-5 accuracy"
+                "accuracy_counts uses logits.topk and counts matches for top-1 and top-5 predictions."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/metrics.py"
@@ -1153,22 +834,8 @@
             "expected_answer": "`cuda_memory_metrics` reports allocated, reserved, max allocated, and max reserved CUDA memory in MB.",
             "accepted_answer_contains": [
                 "`cuda_memory_metrics` reports allocated, reserved, max allocated, and max reserved CUDA memory in MB.",
-                "`cuda_memory_metrics` reports allocated, reserved, max allocated, and max reserved CUDA memory in MB",
                 "evidence/repo/src/utils/metrics.py",
-                "cuda_memory_metrics reports allocated, reserved, max allocated, and max reserved CUDA memory in MB",
-                "cuda_memory_metrics reports allocated, reserved, max allocated, and max reserved CUDA",
-                "cuda_memory_metrics",
-                "cuda_memory_metrics reports allocated",
-                "max allocated",
-                "max reserved CUDA memory in MB",
-                "cuda_memory_metrics reports allocated, reserved",
-                "cuda_memory_metrics reports allocated, reserved, max",
-                "cuda_memory_metrics reports allocated, reserved, max allocated",
-                "cuda_memory_metrics reports allocated, reserved, max allocated, and max",
-                "CUDA memory metrics",
-                "allocated memory",
-                "reserved memory",
-                "max reserved"
+                "cuda_memory_metrics reports allocated, reserved, max allocated, and max reserved CUDA memory in MB."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/metrics.py"
@@ -1191,15 +858,8 @@
             "expected_answer": "`append_csv_row` writes the header only when the output file is missing or empty.",
             "accepted_answer_contains": [
                 "`append_csv_row` writes the header only when the output file is missing or empty.",
-                "`append_csv_row` writes the header only when the output file is missing or empty",
                 "evidence/repo/src/utils/metrics.py",
-                "append_csv_row writes the header only when the output file is missing or empty",
-                "append_csv_row writes the header only when the output file is",
-                "append_csv_row",
-                "append_csv_row writes the header",
-                "append_csv_row writes the header only",
-                "append_csv_row writes the header only when",
-                "append_csv_row writes the header only when the output"
+                "append_csv_row writes the header only when the output file is missing or empty."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/metrics.py"
@@ -1222,14 +882,8 @@
             "expected_answer": "`train_one_epoch` calls `torch.cuda.synchronize(device)` before measuring compute time.",
             "accepted_answer_contains": [
                 "`train_one_epoch` calls `torch.cuda.synchronize(device)` before measuring compute time.",
-                "`train_one_epoch` calls `torch.cuda.synchronize(device)` before measuring compute time",
                 "evidence/repo/src/engine/trainer.py",
-                "train_one_epoch calls torch.cuda.synchronize(device) before measuring compute time",
-                "train_one_epoch",
-                "torch.cuda.synchronize(device)",
-                "train_one_epoch calls torch.cuda.synchronize(device) before",
-                "train_one_epoch calls torch.cuda.synchronize(device) before measuring",
-                "train_one_epoch calls torch.cuda.synchronize(device) before measuring compute"
+                "train_one_epoch calls torch.cuda.synchronize(device) before measuring compute time."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/engine/trainer.py"
@@ -1252,14 +906,7 @@
             "expected_answer": "It divides loss by the accumulation group size and only steps the optimizer at the configured accumulation boundary or final batch.",
             "accepted_answer_contains": [
                 "It divides loss by the accumulation group size and only steps the optimizer at the configured accumulation boundary or final batch.",
-                "divides loss by the accumulation group size and only steps the optimizer at the configured accumulation boundary or final batch",
-                "evidence/repo/src/engine/trainer.py",
-                "divides loss by the accumulation group size and only",
-                "divides loss by the accumulation group size and only steps the optimizer",
-                "divides loss",
-                "divides loss by the accumulation group size",
-                "only steps the optimizer at the configured accumulation boundary or final batch",
-                "divides loss by the accumulation"
+                "evidence/repo/src/engine/trainer.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/engine/trainer.py"
@@ -1282,14 +929,7 @@
             "expected_answer": "Each step row includes loss, top-1, top-5, timing, throughput, and CUDA memory metrics.",
             "accepted_answer_contains": [
                 "Each step row includes loss, top-1, top-5, timing, throughput, and CUDA memory metrics.",
-                "Each step row includes loss, top-1, top-5, timing, throughput, and CUDA memory metrics",
-                "evidence/repo/src/engine/trainer.py",
-                "Each step row includes loss, top-1, top-5, timing, throughput",
-                "Each step row includes loss",
-                "CUDA memory metrics",
-                "Each step row includes",
-                "Each step row includes loss, top-1",
-                "Each step row includes loss, top-1, top-5, timing"
+                "evidence/repo/src/engine/trainer.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/engine/trainer.py"
@@ -1312,18 +952,8 @@
             "expected_answer": "After validation, `src/train.py` writes train loss/accuracy, validation loss/accuracy, timing, throughput, and peak memory to the epoch CSV.",
             "accepted_answer_contains": [
                 "After validation, `src/train.py` writes train loss/accuracy, validation loss/accuracy, timing, throughput, and peak memory to the epoch CSV.",
-                "After validation, `src/train.py` writes train loss/accuracy, validation loss/accuracy, timing, throughput, and peak memory to the epoch CSV",
                 "evidence/repo/src/train.py",
-                "After validation, src/train.py writes train loss/accuracy, validation loss/accuracy, timing, throughput, and peak memory to the epoch CSV",
-                "After validation, src/train.py writes train loss/accuracy, validation loss/accuracy, timing, throughput",
-                "src/train.py",
-                "train.py",
-                "src/train.py writes train loss/accuracy",
-                "peak memory to the epoch CSV",
-                "After validation, src/train.py writes",
-                "After validation, src/train.py writes train",
-                "After validation, src/train.py writes train loss/accuracy",
-                "After validation, src/train.py writes train loss/accuracy, validation loss/accuracy"
+                "After validation, src/train.py writes train loss/accuracy, validation loss/accuracy, timing, throughput, and peak memory to the epoch CSV."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/train.py"
@@ -1346,18 +976,7 @@
             "expected_answer": "A checkpoint is considered best when the current validation top-1 accuracy exceeds the previous best.",
             "accepted_answer_contains": [
                 "A checkpoint is considered best when the current validation top-1 accuracy exceeds the previous best.",
-                "checkpoint is considered best when the current validation top-1 accuracy exceeds the previous best",
-                "evidence/repo/src/train.py",
-                "checkpoint is considered best when the current validation top-1",
-                "checkpoint is considered",
-                "checkpoint is considered best",
-                "checkpoint is considered best when",
-                "checkpoint is considered best when the current",
-                "best checkpoint",
-                "validation top-1",
-                "model state",
-                "optimizer state",
-                "scheduler state"
+                "evidence/repo/src/train.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/train.py"
@@ -1380,19 +999,7 @@
             "expected_answer": "A checkpoint stores epoch, model state, optimizer state, scheduler state, best validation top-1, and config.",
             "accepted_answer_contains": [
                 "A checkpoint stores epoch, model state, optimizer state, scheduler state, best validation top-1, and config.",
-                "checkpoint stores epoch, model state, optimizer state, scheduler state, best validation top-1, and config",
-                "evidence/repo/src/engine/checkpointing.py",
-                "checkpoint stores epoch, model state, optimizer state, scheduler state",
-                "checkpoint stores epoch",
-                "model state",
-                "optimizer state",
-                "scheduler state",
-                "best validation top-1",
-                "checkpoint stores epoch, model",
-                "checkpoint stores epoch, model state",
-                "checkpoint stores epoch, model state, optimizer state",
-                "best checkpoint",
-                "validation top-1"
+                "evidence/repo/src/engine/checkpointing.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/engine/checkpointing.py"
@@ -1415,15 +1022,7 @@
             "expected_answer": "Training loads the best checkpoint for test evaluation when best checkpoint saving is enabled and the file exists.",
             "accepted_answer_contains": [
                 "Training loads the best checkpoint for test evaluation when best checkpoint saving is enabled and the file exists.",
-                "Training loads the best checkpoint for test evaluation when best checkpoint saving is enabled and the file exists",
-                "evidence/repo/src/train.py",
-                "Training loads the best checkpoint for test evaluation when best",
-                "Training loads the best checkpoint for test evaluation when best checkpoint saving is enabled",
-                "the file exists",
-                "Training loads the best",
-                "Training loads the best checkpoint",
-                "Training loads the best checkpoint for",
-                "Training loads the best checkpoint for test evaluation"
+                "evidence/repo/src/train.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/train.py"
@@ -1446,17 +1045,7 @@
             "expected_answer": "The script summarizes samples, memory, utilization, power draw, and temperature using averages and maxima.",
             "accepted_answer_contains": [
                 "The script summarizes samples, memory, utilization, power draw, and temperature using averages and maxima.",
-                "script summarizes samples, memory, utilization, power draw, and temperature using averages and maxima",
-                "evidence/repo/src/summarize_gpu_log.py",
-                "script summarizes samples, memory, utilization, power draw, and temperature",
-                "script summarizes samples",
-                "power draw",
-                "temperature using averages",
-                "script summarizes samples, memory",
-                "script summarizes samples, memory, utilization",
-                "script summarizes samples, memory, utilization, power draw",
-                "memory utilization",
-                "averages and maxima"
+                "evidence/repo/src/summarize_gpu_log.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/summarize_gpu_log.py"
@@ -1479,17 +1068,8 @@
             "expected_answer": "It indexes GPU rows by `(job_id, experiment_name)` and joins matching GPU metrics into each training row.",
             "accepted_answer_contains": [
                 "It indexes GPU rows by `(job_id, experiment_name)` and joins matching GPU metrics into each training row.",
-                "indexes GPU rows by `(job_id, experiment_name)` and joins matching GPU metrics into each training row",
                 "evidence/repo/src/compare_runs.py",
-                "indexes GPU rows by (job_id, experiment_name) and joins matching GPU metrics into each training row",
-                "indexes GPU rows by (job_id, experiment_name) and joins matching",
-                "indexes GPU rows",
-                "(job_id, experiment_name)",
-                "indexes GPU rows by (job_id",
-                "joins matching GPU metrics into each training row",
-                "indexes GPU rows by (job_id, experiment_name)",
-                "job_id",
-                "experiment_name"
+                "It indexes GPU rows by (job_id, experiment_name) and joins matching GPU metrics into each training row."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/compare_runs.py"
@@ -1512,16 +1092,7 @@
             "expected_answer": "It leaves GPU fields empty and prints a warning with the number of missing GPU summaries.",
             "accepted_answer_contains": [
                 "It leaves GPU fields empty and prints a warning with the number of missing GPU summaries.",
-                "leaves GPU fields empty and prints a warning with the number of missing GPU summaries",
-                "evidence/repo/src/compare_runs.py",
-                "leaves GPU fields empty and prints a warning",
-                "leaves GPU fields empty",
-                "prints a warning with the number of missing GPU summaries",
-                "leaves GPU fields",
-                "leaves GPU fields empty and prints",
-                "GPU fields empty",
-                "prints a warning",
-                "missing GPU summaries"
+                "evidence/repo/src/compare_runs.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/compare_runs.py"
@@ -1544,21 +1115,8 @@
             "expected_answer": "No, training creates one model on a single CUDA device and does not wrap it in DDP or DataParallel.",
             "accepted_answer_contains": [
                 "No, training creates one model on a single CUDA device and does not wrap it in DDP or DataParallel.",
-                "No, training creates one model on a single CUDA device and does not wrap it in DDP or DataParallel",
                 "evidence/repo/slurm/train-one.slurm",
-                "evidence/repo/src/train.py",
-                "No, training creates one model on a single CUDA device",
-                "training creates one model on a single CUDA device",
-                "does not wrap it in DDP or DataParallel",
-                "No, training creates one",
-                "No, training creates one model",
-                "No, training creates one model on",
-                "No, training creates one model on a single",
-                "DataParallel",
-                "single CUDA device",
-                "not DDP",
-                "not DataParallel",
-                "one GPU"
+                "evidence/repo/src/train.py"
             ],
             "required_evidence_files": [
                 "evidence/repo/slurm/train-one.slurm",
@@ -1590,16 +1148,8 @@
             "expected_answer": "No, `prepare-data.slurm` runs Apptainer without `--nv` because it only prepares data.",
             "accepted_answer_contains": [
                 "No, `prepare-data.slurm` runs Apptainer without `--nv` because it only prepares data.",
-                "No, `prepare-data.slurm` runs Apptainer without `--nv` because it only prepares data",
                 "evidence/repo/slurm/prepare-data.slurm",
-                "No, prepare-data.slurm runs Apptainer without --nv because it only prepares data",
-                "No, prepare-data.slurm runs Apptainer without --nv",
-                "prepare-data.slurm",
-                "--nv",
-                "prepare-data.slurm runs Apptainer without --nv because it only prepares data",
-                "No, prepare-data.slurm runs Apptainer",
-                "No, prepare-data.slurm runs Apptainer without",
-                "No, prepare-data.slurm runs Apptainer without --nv because it"
+                "No, prepare-data.slurm runs Apptainer without --nv because it only prepares data."
             ],
             "required_evidence_files": [
                 "evidence/repo/slurm/prepare-data.slurm"
@@ -1622,16 +1172,8 @@
             "expected_answer": "No, `compare-runs.slurm` runs on the compute partition with one CPU and no `--gres=gpu` line.",
             "accepted_answer_contains": [
                 "No, `compare-runs.slurm` runs on the compute partition with one CPU and no `--gres=gpu` line.",
-                "No, `compare-runs.slurm` runs on the compute partition with one CPU and no `--gres=gpu` line",
                 "evidence/repo/slurm/compare-runs.slurm",
-                "No, compare-runs.slurm runs on the compute partition with one CPU and no --gres=gpu line",
-                "No, compare-runs.slurm runs on the compute partition with one CPU",
-                "compare-runs.slurm",
-                "--gres=gpu",
-                "compare-runs.slurm runs on the compute partition with one CPU",
-                "no --gres=gpu line",
-                "No, compare-runs.slurm runs on the compute",
-                "No, compare-runs.slurm runs on the compute partition"
+                "No, compare-runs.slurm runs on the compute partition with one CPU and no --gres=gpu line."
             ],
             "required_evidence_files": [
                 "evidence/repo/slurm/compare-runs.slurm"
@@ -1654,18 +1196,8 @@
             "expected_answer": "No, the array job selects a config and calls `bash slurm/train-one.slurm`, so the array allocation is reused.",
             "accepted_answer_contains": [
                 "No, the array job selects a config and calls `bash slurm/train-one.slurm`, so the array allocation is reused.",
-                "No, the array job selects a config and calls `bash slurm/train-one.slurm`, so the array allocation is reused",
                 "evidence/repo/slurm/run-benchmark-array.slurm",
-                "No, the array job selects a config and calls bash slurm/train-one.slurm, so the array allocation is reused",
-                "No, the array job selects a config and calls bash slurm/train-one.slurm",
-                "slurm/train-one.slurm",
-                "train-one.slurm",
-                "the array job selects a config",
-                "calls bash slurm/train-one.slurm",
-                "so the array allocation is reused",
-                "No, the array job",
-                "No, the array job selects",
-                "No, the array job selects a config"
+                "No, the array job selects a config and calls bash slurm/train-one.slurm, so the array allocation is reused."
             ],
             "required_evidence_files": [
                 "evidence/repo/slurm/run-benchmark-array.slurm"
@@ -1688,23 +1220,9 @@
             "expected_answer": "The training script compares `num_workers` against the actual Slurm CPU allocation resolved from `SLURM_CPUS_PER_TASK`, not only the JSON value.",
             "accepted_answer_contains": [
                 "The training script compares `num_workers` against the actual Slurm CPU allocation resolved from `SLURM_CPUS_PER_TASK`, not only the JSON value.",
-                "training script compares `num_workers` against the actual Slurm CPU allocation resolved from `SLURM_CPUS_PER_TASK`, not only the JSON value",
                 "evidence/repo/src/train.py",
                 "evidence/repo/src/utils/slurm.py",
-                "training script compares num_workers against the actual Slurm CPU allocation resolved from SLURM_CPUS_PER_TASK, not only the JSON value",
-                "training script compares num_workers against the actual Slurm CPU",
-                "training script compares num_workers against the actual Slurm CPU allocation resolved",
-                "num_workers",
-                "SLURM_CPUS_PER_TASK",
-                "training script compares num_workers against the actual Slurm CPU allocation resolved from SLURM_CPUS_PER_TASK",
-                "not only the JSON value",
-                "training script compares",
-                "training script compares num_workers",
-                "training script compares num_workers against",
-                "training script compares num_workers against the actual",
-                "num_workers must not exceed cpus_per_task",
-                "worker count exceeds CPU allocation",
-                "actual Slurm CPU allocation"
+                "The training script compares num_workers against the actual Slurm CPU allocation resolved from SLURM_CPUS_PER_TASK, not only the JSON value."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/train.py",
@@ -1736,15 +1254,7 @@
             "expected_answer": "The ResNet101 and ResNet152 benchmark runs used batch size 64.",
             "accepted_answer_contains": [
                 "The ResNet101 and ResNet152 benchmark runs used batch size 64.",
-                "ResNet101 and ResNet152 benchmark runs used batch size 64",
-                "evidence/results/comparison.csv",
-                "ResNet152 benchmark runs used batch size 64",
-                "ResNet101 and ResNet152",
-                "ResNet101 and ResNet152 benchmark",
-                "ResNet101 and ResNet152 benchmark runs",
-                "ResNet101 and ResNet152 benchmark runs used batch",
-                "ResNet101",
-                "ResNet152"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -1767,16 +1277,7 @@
             "expected_answer": "The custom, ResNet18, ResNet34, and ResNet50 runs used batch size 128.",
             "accepted_answer_contains": [
                 "The custom, ResNet18, ResNet34, and ResNet50 runs used batch size 128.",
-                "custom, ResNet18, ResNet34, and ResNet50 runs used batch size 128",
-                "evidence/results/comparison.csv",
-                "custom, ResNet18, ResNet34, and ResNet50 runs used batch size",
-                "ResNet50 runs used batch size 128",
-                "custom, ResNet18, ResNet34",
-                "custom, ResNet18, ResNet34, and ResNet50",
-                "custom, ResNet18, ResNet34, and ResNet50 runs used",
-                "ResNet18",
-                "ResNet34",
-                "ResNet50"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -1799,15 +1300,7 @@
             "expected_answer": "ResNet18 had the lowest average step time at 0.039781 seconds.",
             "accepted_answer_contains": [
                 "ResNet18 had the lowest average step time at 0.039781 seconds.",
-                "ResNet18 had the lowest average step time at 0.039781 seconds",
-                "evidence/results/comparison.csv",
-                "ResNet18 had the lowest average step time",
-                "0.039781 seconds",
-                "ResNet18 had the lowest",
-                "ResNet18 had the lowest average",
-                "ResNet18 had the lowest average step",
-                "ResNet18 had the lowest average step time at",
-                "ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -1830,15 +1323,7 @@
             "expected_answer": "ResNet152 had the highest average step time at 0.156363 seconds.",
             "accepted_answer_contains": [
                 "ResNet152 had the highest average step time at 0.156363 seconds.",
-                "ResNet152 had the highest average step time at 0.156363 seconds",
-                "evidence/results/comparison.csv",
-                "ResNet152 had the highest average step time",
-                "0.156363 seconds",
-                "ResNet152 had the highest",
-                "ResNet152 had the highest average",
-                "ResNet152 had the highest average step",
-                "ResNet152 had the highest average step time at",
-                "ResNet152"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -1861,14 +1346,7 @@
             "expected_answer": "ResNet152 had the lowest data time ratio at 0.002427.",
             "accepted_answer_contains": [
                 "ResNet152 had the lowest data time ratio at 0.002427.",
-                "ResNet152 had the lowest data time ratio at 0.002427",
-                "evidence/results/comparison.csv",
-                "ResNet152 had the lowest data time ratio",
-                "ResNet152 had the lowest",
-                "ResNet152 had the lowest data",
-                "ResNet152 had the lowest data time",
-                "ResNet152 had the lowest data time ratio at",
-                "ResNet152"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -1891,14 +1369,7 @@
             "expected_answer": "ResNet18 had the highest data time ratio at 0.015006.",
             "accepted_answer_contains": [
                 "ResNet18 had the highest data time ratio at 0.015006.",
-                "ResNet18 had the highest data time ratio at 0.015006",
-                "evidence/results/comparison.csv",
-                "ResNet18 had the highest data time ratio",
-                "ResNet18 had the highest",
-                "ResNet18 had the highest data",
-                "ResNet18 had the highest data time",
-                "ResNet18 had the highest data time ratio at",
-                "ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -1921,15 +1392,7 @@
             "expected_answer": "ResNet18 had the best validation top-1 accuracy at 69.98%.",
             "accepted_answer_contains": [
                 "ResNet18 had the best validation top-1 accuracy at 69.98%.",
-                "ResNet18 had the best validation top-1 accuracy at 69.98%",
-                "evidence/results/comparison.csv",
-                "ResNet18 had the best validation top-1 accuracy",
-                "69.98%",
-                "ResNet18 had the best",
-                "ResNet18 had the best validation",
-                "ResNet18 had the best validation top-1",
-                "ResNet18 had the best validation top-1 accuracy at",
-                "ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -1952,15 +1415,7 @@
             "expected_answer": "ResNet50 had the worst validation top-1 accuracy at 58.70%.",
             "accepted_answer_contains": [
                 "ResNet50 had the worst validation top-1 accuracy at 58.70%.",
-                "ResNet50 had the worst validation top-1 accuracy at 58.70%",
-                "evidence/results/comparison.csv",
-                "ResNet50 had the worst validation top-1 accuracy",
-                "58.70%",
-                "ResNet50 had the worst",
-                "ResNet50 had the worst validation",
-                "ResNet50 had the worst validation top-1",
-                "ResNet50 had the worst validation top-1 accuracy at",
-                "ResNet50"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -1983,15 +1438,7 @@
             "expected_answer": "ResNet18 had the best validation top-5 accuracy at 91.46%.",
             "accepted_answer_contains": [
                 "ResNet18 had the best validation top-5 accuracy at 91.46%.",
-                "ResNet18 had the best validation top-5 accuracy at 91.46%",
-                "evidence/results/comparison.csv",
-                "ResNet18 had the best validation top-5 accuracy",
-                "91.46%",
-                "ResNet18 had the best",
-                "ResNet18 had the best validation",
-                "ResNet18 had the best validation top-5",
-                "ResNet18 had the best validation top-5 accuracy at",
-                "ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2014,15 +1461,7 @@
             "expected_answer": "ResNet50 had the worst validation top-5 accuracy at 85.60%.",
             "accepted_answer_contains": [
                 "ResNet50 had the worst validation top-5 accuracy at 85.60%.",
-                "ResNet50 had the worst validation top-5 accuracy at 85.60%",
-                "evidence/results/comparison.csv",
-                "ResNet50 had the worst validation top-5 accuracy",
-                "85.60%",
-                "ResNet50 had the worst",
-                "ResNet50 had the worst validation",
-                "ResNet50 had the worst validation top-5",
-                "ResNet50 had the worst validation top-5 accuracy at",
-                "ResNet50"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2045,14 +1484,7 @@
             "expected_answer": "ResNet50 had the lowest final test top-1 accuracy at 58.28%.",
             "accepted_answer_contains": [
                 "ResNet50 had the lowest final test top-1 accuracy at 58.28%.",
-                "ResNet50 had the lowest final test top-1 accuracy at 58.28%",
-                "evidence/results/comparison.csv",
-                "ResNet50 had the lowest final test top-1 accuracy",
-                "58.28%",
-                "ResNet50 had the lowest",
-                "ResNet50 had the lowest final",
-                "ResNet50 had the lowest final test",
-                "ResNet50"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2075,14 +1507,7 @@
             "expected_answer": "ResNet50 had the lowest final test top-5 accuracy at 85.82%.",
             "accepted_answer_contains": [
                 "ResNet50 had the lowest final test top-5 accuracy at 85.82%.",
-                "ResNet50 had the lowest final test top-5 accuracy at 85.82%",
-                "evidence/results/comparison.csv",
-                "ResNet50 had the lowest final test top-5 accuracy",
-                "85.82%",
-                "ResNet50 had the lowest",
-                "ResNet50 had the lowest final",
-                "ResNet50 had the lowest final test",
-                "ResNet50"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2105,15 +1530,7 @@
             "expected_answer": "ResNet50 had the highest PyTorch peak reserved memory at 4448.0 MB.",
             "accepted_answer_contains": [
                 "ResNet50 had the highest PyTorch peak reserved memory at 4448.0 MB.",
-                "ResNet50 had the highest PyTorch peak reserved memory at 4448.0 MB",
-                "evidence/results/comparison.csv",
-                "ResNet50 had the highest PyTorch peak reserved memory at 4448.0",
-                "ResNet50 had the highest PyTorch peak reserved memory",
-                "4448.0 MB",
-                "ResNet50 had the highest",
-                "ResNet50 had the highest PyTorch",
-                "ResNet50 had the highest PyTorch peak",
-                "ResNet50"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2136,15 +1553,7 @@
             "expected_answer": "ResNet152 had the highest PyTorch peak allocated memory at 3904.1602 MB.",
             "accepted_answer_contains": [
                 "ResNet152 had the highest PyTorch peak allocated memory at 3904.1602 MB.",
-                "ResNet152 had the highest PyTorch peak allocated memory at 3904.1602 MB",
-                "evidence/results/comparison.csv",
-                "ResNet152 had the highest PyTorch peak allocated memory at 3904.1602",
-                "ResNet152 had the highest PyTorch peak allocated memory",
-                "3904.1602 MB",
-                "ResNet152 had the highest",
-                "ResNet152 had the highest PyTorch",
-                "ResNet152 had the highest PyTorch peak",
-                "ResNet152"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2167,16 +1576,8 @@
             "expected_answer": "ResNet18 had the lowest average `nvidia-smi` memory used at 1701.6283 MB.",
             "accepted_answer_contains": [
                 "ResNet18 had the lowest average `nvidia-smi` memory used at 1701.6283 MB.",
-                "ResNet18 had the lowest average `nvidia-smi` memory used at 1701.6283 MB",
                 "evidence/results/comparison.csv",
-                "ResNet18 had the lowest average nvidia-smi memory used at 1701.6283 MB",
-                "ResNet18 had the lowest average nvidia-smi memory used at 1701.6283",
-                "ResNet18 had the lowest average nvidia-smi memory used",
-                "1701.6283 MB",
-                "ResNet18 had the lowest",
-                "ResNet18 had the lowest average",
-                "ResNet18 had the lowest average nvidia-smi",
-                "ResNet18"
+                "ResNet18 had the lowest average nvidia-smi memory used at 1701.6283 MB."
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2199,16 +1600,8 @@
             "expected_answer": "ResNet152 had the highest average `nvidia-smi` memory used at 4823.3167 MB.",
             "accepted_answer_contains": [
                 "ResNet152 had the highest average `nvidia-smi` memory used at 4823.3167 MB.",
-                "ResNet152 had the highest average `nvidia-smi` memory used at 4823.3167 MB",
                 "evidence/results/comparison.csv",
-                "ResNet152 had the highest average nvidia-smi memory used at 4823.3167 MB",
-                "ResNet152 had the highest average nvidia-smi memory used at 4823.3167",
-                "ResNet152 had the highest average nvidia-smi memory used",
-                "4823.3167 MB",
-                "ResNet152 had the highest",
-                "ResNet152 had the highest average",
-                "ResNet152 had the highest average nvidia-smi",
-                "ResNet152"
+                "ResNet152 had the highest average nvidia-smi memory used at 4823.3167 MB."
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2231,12 +1624,7 @@
             "expected_answer": "ResNet50 reached 100% maximum GPU utilization.",
             "accepted_answer_contains": [
                 "ResNet50 reached 100% maximum GPU utilization.",
-                "ResNet50 reached 100% maximum GPU utilization",
-                "evidence/results/comparison.csv",
-                "100%",
-                "ResNet50 reached 100% maximum",
-                "ResNet50 reached 100% maximum GPU",
-                "ResNet50"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2259,15 +1647,7 @@
             "expected_answer": "ResNet18 had the lowest maximum GPU utilization at 93.0%.",
             "accepted_answer_contains": [
                 "ResNet18 had the lowest maximum GPU utilization at 93.0%.",
-                "ResNet18 had the lowest maximum GPU utilization at 93.0%",
-                "evidence/results/comparison.csv",
-                "ResNet18 had the lowest maximum GPU utilization",
-                "93.0%",
-                "ResNet18 had the lowest",
-                "ResNet18 had the lowest maximum",
-                "ResNet18 had the lowest maximum GPU",
-                "ResNet18 had the lowest maximum GPU utilization at",
-                "ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2290,15 +1670,7 @@
             "expected_answer": "ResNet18 had the lowest average GPU utilization at 81.6578%.",
             "accepted_answer_contains": [
                 "ResNet18 had the lowest average GPU utilization at 81.6578%.",
-                "ResNet18 had the lowest average GPU utilization at 81.6578%",
-                "evidence/results/comparison.csv",
-                "ResNet18 had the lowest average GPU utilization",
-                "81.6578%",
-                "ResNet18 had the lowest",
-                "ResNet18 had the lowest average",
-                "ResNet18 had the lowest average GPU",
-                "ResNet18 had the lowest average GPU utilization at",
-                "ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2321,15 +1693,7 @@
             "expected_answer": "ResNet18 had the lowest average power draw at 217.5048 W.",
             "accepted_answer_contains": [
                 "ResNet18 had the lowest average power draw at 217.5048 W.",
-                "ResNet18 had the lowest average power draw at 217.5048 W",
-                "evidence/results/comparison.csv",
-                "ResNet18 had the lowest average power draw",
-                "217.5048 W",
-                "ResNet18 had the lowest",
-                "ResNet18 had the lowest average",
-                "ResNet18 had the lowest average power",
-                "ResNet18 had the lowest average power draw at",
-                "ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2352,14 +1716,7 @@
             "expected_answer": "ResNet152 had the longest total runtime at 2404.411947 seconds.",
             "accepted_answer_contains": [
                 "ResNet152 had the longest total runtime at 2404.411947 seconds.",
-                "ResNet152 had the longest total runtime at 2404.411947 seconds",
-                "evidence/results/training_summary_1147_resnet152_bs64_workers4_cpus4.csv",
-                "ResNet152 had the longest total runtime",
-                "2404.411947 seconds",
-                "ResNet152 had the longest",
-                "ResNet152 had the longest total",
-                "ResNet152 had the longest total runtime at 2404.411947",
-                "ResNet152"
+                "evidence/results/training_summary_1147_resnet152_bs64_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/training_summary_1147_resnet152_bs64_workers4_cpus4.csv"
@@ -2382,14 +1739,7 @@
             "expected_answer": "ResNet18 had the shortest total runtime at 333.833256 seconds.",
             "accepted_answer_contains": [
                 "ResNet18 had the shortest total runtime at 333.833256 seconds.",
-                "ResNet18 had the shortest total runtime at 333.833256 seconds",
-                "evidence/results/training_summary_1148_resnet18_bs128_workers4_cpus4.csv",
-                "ResNet18 had the shortest total runtime",
-                "333.833256 seconds",
-                "ResNet18 had the shortest",
-                "ResNet18 had the shortest total",
-                "ResNet18 had the shortest total runtime at 333.833256",
-                "ResNet18"
+                "evidence/results/training_summary_1148_resnet18_bs128_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/training_summary_1148_resnet18_bs128_workers4_cpus4.csv"
@@ -2412,15 +1762,7 @@
             "expected_answer": "The ResNet18 GPU summary reports 32768.0 MB of total GPU memory.",
             "accepted_answer_contains": [
                 "The ResNet18 GPU summary reports 32768.0 MB of total GPU memory.",
-                "ResNet18 GPU summary reports 32768.0 MB of total GPU memory",
-                "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv",
-                "ResNet18 GPU summary reports 32768.0 MB of total GPU",
-                "18 GPU",
-                "32768.0 MB",
-                "ResNet18 GPU summary",
-                "ResNet18 GPU summary reports",
-                "ResNet18 GPU summary reports 32768.0",
-                "ResNet18 GPU summary reports 32768.0 MB"
+                "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv"
@@ -2443,14 +1785,7 @@
             "expected_answer": "ResNet152 produced the most GPU samples with 2406 rows summarized.",
             "accepted_answer_contains": [
                 "ResNet152 produced the most GPU samples with 2406 rows summarized.",
-                "ResNet152 produced the most GPU samples with 2406 rows summarized",
-                "evidence/results/gpu_summary_1147_resnet152_bs64_workers4_cpus4.csv",
-                "2406 rows",
-                "ResNet152 produced the most",
-                "ResNet152 produced the most GPU",
-                "ResNet152 produced the most GPU samples",
-                "ResNet152 produced the most GPU samples with 2406",
-                "ResNet152"
+                "evidence/results/gpu_summary_1147_resnet152_bs64_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_1147_resnet152_bs64_workers4_cpus4.csv"
@@ -2473,14 +1808,7 @@
             "expected_answer": "ResNet18 produced the fewest GPU samples with 339 rows summarized.",
             "accepted_answer_contains": [
                 "ResNet18 produced the fewest GPU samples with 339 rows summarized.",
-                "ResNet18 produced the fewest GPU samples with 339 rows summarized",
-                "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv",
-                "339 rows",
-                "ResNet18 produced the fewest",
-                "ResNet18 produced the fewest GPU",
-                "ResNet18 produced the fewest GPU samples",
-                "ResNet18 produced the fewest GPU samples with 339",
-                "ResNet18"
+                "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv"
@@ -2503,14 +1831,7 @@
             "expected_answer": "No, ResNet152 is much slower and lower in final test top-1 than ResNet18 in these results.",
             "accepted_answer_contains": [
                 "No, ResNet152 is much slower and lower in final test top-1 than ResNet18 in these results.",
-                "No, ResNet152 is much slower and lower in final test top-1 than ResNet18 in these results",
-                "evidence/results/comparison.csv",
-                "No, ResNet152 is much slower and lower in final test",
-                "ResNet152 is much slower",
-                "lower in final test top-1 than ResNet18 in these results",
-                "No, ResNet152 is much",
-                "No, ResNet152 is much slower",
-                "No, ResNet152 is much slower and lower"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2533,15 +1854,7 @@
             "expected_answer": "No, ResNet50 uses much more memory and has lower final test top-1 than ResNet18.",
             "accepted_answer_contains": [
                 "No, ResNet50 uses much more memory and has lower final test top-1 than ResNet18.",
-                "No, ResNet50 uses much more memory and has lower final test top-1 than ResNet18",
-                "evidence/results/comparison.csv",
-                "No, ResNet50 uses much more memory and has lower final",
-                "ResNet50 uses much more memory",
-                "has lower final test top-1 than ResNet18",
-                "No, ResNet50 uses much",
-                "No, ResNet50 uses much more",
-                "No, ResNet50 uses much more memory",
-                "No, ResNet50 uses much more memory and has"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2564,14 +1877,7 @@
             "expected_answer": "ResNet18 appears most efficient because it has the highest final test top-1 and the lowest PyTorch peak allocated memory.",
             "accepted_answer_contains": [
                 "ResNet18 appears most efficient because it has the highest final test top-1 and the lowest PyTorch peak allocated memory.",
-                "ResNet18 appears most efficient because it has the highest final test top-1 and the lowest PyTorch peak allocated memory",
-                "evidence/results/comparison.csv",
-                "ResNet18 appears most efficient",
-                "ResNet18 appears most efficient because it has the highest final test top-1",
-                "the lowest PyTorch peak allocated memory",
-                "ResNet18 appears most efficient because it",
-                "ResNet18 appears most efficient because it has",
-                "ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2594,14 +1900,7 @@
             "expected_answer": "ResNet50 appears least favorable because it has the lowest test top-1 while using the highest nvidia-smi maximum memory.",
             "accepted_answer_contains": [
                 "ResNet50 appears least favorable because it has the lowest test top-1 while using the highest nvidia-smi maximum memory.",
-                "ResNet50 appears least favorable because it has the lowest test top-1 while using the highest nvidia-smi maximum memory",
-                "evidence/results/comparison.csv",
-                "ResNet50 appears least favorable",
-                "ResNet50 appears least favorable because it has the lowest test top-1",
-                "using the highest nvidia-smi maximum memory",
-                "ResNet50 appears least favorable because it",
-                "ResNet50 appears least favorable because it has",
-                "ResNet50"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2624,14 +1923,7 @@
             "expected_answer": "The custom run and ResNet34 benchmark are both ResNet34 with batch size 128 and show nearly identical memory and throughput.",
             "accepted_answer_contains": [
                 "The custom run and ResNet34 benchmark are both ResNet34 with batch size 128 and show nearly identical memory and throughput.",
-                "custom run and ResNet34 benchmark are both ResNet34 with batch size 128 and show nearly identical memory and throughput",
-                "evidence/results/comparison.csv",
-                "custom run and ResNet34 benchmark are both ResNet34",
-                "ResNet34 benchmark are both ResNet34 with batch size 128",
-                "show nearly identical memory",
-                "custom run and ResNet34",
-                "custom run and ResNet34 benchmark",
-                "custom run and ResNet34 benchmark are both"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2654,19 +1946,7 @@
             "expected_answer": "ResNet152 had the best validation top-1 among ResNet50, ResNet101, and ResNet152 at 66.66%.",
             "accepted_answer_contains": [
                 "ResNet152 had the best validation top-1 among ResNet50, ResNet101, and ResNet152 at 66.66%.",
-                "ResNet152 had the best validation top-1 among ResNet50, ResNet101, and ResNet152 at 66.66%",
-                "evidence/results/comparison.csv",
-                "ResNet152 had the best validation top-1 among ResNet50, ResNet101",
-                "ResNet152 had the best validation top-1 among ResNet50, ResNet101, and ResNet152",
-                "66.66%",
-                "ResNet152 had the best validation top-1 among ResNet50",
-                "ResNet152 at 66.66%",
-                "ResNet152 had the best",
-                "ResNet152 had the best validation",
-                "ResNet152 had the best validation top-1",
-                "ResNet152",
-                "ResNet50",
-                "ResNet101"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2689,15 +1969,7 @@
             "expected_answer": "ResNet152 had the best final test top-1 among bottleneck models at 67.28%.",
             "accepted_answer_contains": [
                 "ResNet152 had the best final test top-1 among bottleneck models at 67.28%.",
-                "ResNet152 had the best final test top-1 among bottleneck models at 67.28%",
-                "evidence/results/comparison.csv",
-                "ResNet152 had the best final test top-1 among bottleneck models",
-                "67.28%",
-                "ResNet152 had the best",
-                "ResNet152 had the best final",
-                "ResNet152 had the best final test",
-                "ResNet152 had the best final test top-1 among",
-                "ResNet152"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2720,17 +1992,7 @@
             "expected_answer": "ResNet50 had the best throughput among bottleneck models at 1032.1272 samples/sec.",
             "accepted_answer_contains": [
                 "ResNet50 had the best throughput among bottleneck models at 1032.1272 samples/sec.",
-                "ResNet50 had the best throughput among bottleneck models at 1032.1272 samples/sec",
-                "evidence/results/comparison.csv",
-                "ResNet50 had the best throughput among bottleneck models at 1032.1272",
-                "ResNet50 had the best throughput among bottleneck models",
-                "1032.1272 samples/sec",
-                "ResNet50 had the best",
-                "ResNet50 had the best throughput",
-                "ResNet50 had the best throughput among",
-                "ResNet50",
-                "highest throughput",
-                "best throughput"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2753,15 +2015,7 @@
             "expected_answer": "ResNet152 used the most PyTorch allocated memory among bottleneck models at 3904.1602 MB.",
             "accepted_answer_contains": [
                 "ResNet152 used the most PyTorch allocated memory among bottleneck models at 3904.1602 MB.",
-                "ResNet152 used the most PyTorch allocated memory among bottleneck models at 3904.1602 MB",
-                "evidence/results/comparison.csv",
-                "ResNet152 used the most PyTorch allocated memory among bottleneck models",
-                "3904.1602 MB",
-                "ResNet152 used the most",
-                "ResNet152 used the most PyTorch",
-                "ResNet152 used the most PyTorch allocated",
-                "ResNet152 used the most PyTorch allocated memory among",
-                "ResNet152"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2784,19 +2038,7 @@
             "expected_answer": "No, all reported data_time_ratio values are small, with the largest only 0.015006.",
             "accepted_answer_contains": [
                 "No, all reported data_time_ratio values are small, with the largest only 0.015006.",
-                "No, all reported data_time_ratio values are small, with the largest only 0.015006",
-                "evidence/results/comparison.csv",
-                "No, all reported data_time_ratio values are small, with the largest",
-                "all reported data_time_ratio values are small",
-                "with the largest only 0.015006",
-                "No, all reported data_time_ratio",
-                "No, all reported data_time_ratio values",
-                "No, all reported data_time_ratio values are",
-                "No, all reported data_time_ratio values are small",
-                "data_time_ratio",
-                "data_time_ratio small",
-                "compute dominates",
-                "not data-loading-bound"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2819,17 +2061,7 @@
             "expected_answer": "ResNet152 has average compute time 0.155984 seconds and data time 0.000379 seconds, so compute dominates.",
             "accepted_answer_contains": [
                 "ResNet152 has average compute time 0.155984 seconds and data time 0.000379 seconds, so compute dominates.",
-                "ResNet152 has average compute time 0.155984 seconds and data time 0.000379 seconds, so compute dominates",
-                "evidence/results/comparison.csv",
-                "ResNet152 has average compute time 0.155984 seconds and data time 0.000379 seconds",
-                "0.155984 seconds",
-                "0.000379 seconds",
-                "ResNet152 has average compute time 0.155984 seconds",
-                "data time 0.000379 seconds",
-                "so compute dominates",
-                "ResNet152 has average compute",
-                "ResNet152 has average compute time",
-                "ResNet152 has average compute time 0.155984"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2852,18 +2084,7 @@
             "expected_answer": "ResNet18 has the highest data_time_ratio but also the highest throughput at 3213.636 samples/sec.",
             "accepted_answer_contains": [
                 "ResNet18 has the highest data_time_ratio but also the highest throughput at 3213.636 samples/sec.",
-                "ResNet18 has the highest data_time_ratio but also the highest throughput at 3213.636 samples/sec",
-                "evidence/results/comparison.csv",
-                "ResNet18 has the highest data_time_ratio but also the highest throughput",
-                "3213.636 samples/sec",
-                "ResNet18 has the highest",
-                "ResNet18 has the highest data_time_ratio",
-                "ResNet18 has the highest data_time_ratio but",
-                "ResNet18 has the highest data_time_ratio but also",
-                "data_time_ratio",
-                "data_time_ratio small",
-                "compute dominates",
-                "not data-loading-bound"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2886,17 +2107,7 @@
             "expected_answer": "A request around 2 GB or more would cover the measured ResNet18 max nvidia-smi memory of 1736 MB with modest headroom.",
             "accepted_answer_contains": [
                 "A request around 2 GB or more would cover the measured ResNet18 max nvidia-smi memory of 1736 MB with modest headroom.",
-                "request around 2 GB or more would cover the measured ResNet18 max nvidia-smi memory of 1736 MB with modest headroom",
-                "evidence/results/comparison.csv",
-                "request around 2 GB or more would cover",
-                "around 2 GB",
-                "1736 MB",
-                "request around 2",
-                "request around 2 GB",
-                "request around 2 GB or more would",
-                "2 GB or more",
-                "6 GB",
-                "modest headroom"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2919,18 +2130,7 @@
             "expected_answer": "A request around 6 GB would cover the largest measured maximum memory of 4842 MB with modest headroom.",
             "accepted_answer_contains": [
                 "A request around 6 GB would cover the largest measured maximum memory of 4842 MB with modest headroom.",
-                "request around 6 GB would cover the largest measured maximum memory of 4842 MB with modest headroom",
-                "evidence/results/comparison.csv",
-                "request around 6 GB would cover the largest measured",
-                "around 6 GB",
-                "4842 MB",
-                "request around 6",
-                "request around 6 GB",
-                "request around 6 GB would",
-                "request around 6 GB would cover",
-                "2 GB or more",
-                "6 GB",
-                "modest headroom"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -2953,18 +2153,8 @@
             "expected_answer": "No, the largest measured maximum GPU memory is 4842 MB, far below the 32768 MB V100 capacity.",
             "accepted_answer_contains": [
                 "No, the largest measured maximum GPU memory is 4842 MB, far below the 32768 MB V100 capacity.",
-                "No, the largest measured maximum GPU memory is 4842 MB, far below the 32768 MB V100 capacity",
                 "evidence/results/comparison.csv",
-                "evidence/results/gpu_summary_1150_resnet50_bs128_workers4_cpus4.csv",
-                "No, the largest measured maximum GPU memory is 4842 MB",
-                "4842 MB",
-                "32768 MB",
-                "the largest measured maximum GPU memory is 4842 MB",
-                "far below the 32768 MB V100 capacity",
-                "No, the largest measured",
-                "No, the largest measured maximum",
-                "No, the largest measured maximum GPU",
-                "No, the largest measured maximum GPU memory is"
+                "evidence/results/gpu_summary_1150_resnet50_bs128_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv",
@@ -2996,17 +2186,8 @@
             "expected_answer": "ResNet152 and ResNet50 both reached a maximum GPU temperature of 69 C.",
             "accepted_answer_contains": [
                 "ResNet152 and ResNet50 both reached a maximum GPU temperature of 69 C.",
-                "ResNet152 and ResNet50 both reached a maximum GPU temperature of 69 C",
                 "evidence/results/gpu_summary_1147_resnet152_bs64_workers4_cpus4.csv",
-                "evidence/results/gpu_summary_1150_resnet50_bs128_workers4_cpus4.csv",
-                "ResNet152 and ResNet50 both reached a maximum GPU temperature",
-                "69 C",
-                "ResNet50 both reached a maximum GPU temperature of 69 C",
-                "ResNet152 and ResNet50 both",
-                "ResNet152 and ResNet50 both reached",
-                "ResNet152 and ResNet50 both reached a maximum GPU",
-                "ResNet152",
-                "ResNet50"
+                "evidence/results/gpu_summary_1150_resnet50_bs128_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_1147_resnet152_bs64_workers4_cpus4.csv",
@@ -3038,15 +2219,7 @@
             "expected_answer": "ResNet50 had the highest maximum power draw at 304.79 W.",
             "accepted_answer_contains": [
                 "ResNet50 had the highest maximum power draw at 304.79 W.",
-                "ResNet50 had the highest maximum power draw at 304.79 W",
-                "evidence/results/gpu_summary_1150_resnet50_bs128_workers4_cpus4.csv",
-                "ResNet50 had the highest maximum power draw",
-                "304.79 W",
-                "ResNet50 had the highest",
-                "ResNet50 had the highest maximum",
-                "ResNet50 had the highest maximum power",
-                "ResNet50 had the highest maximum power draw at",
-                "ResNet50"
+                "evidence/results/gpu_summary_1150_resnet50_bs128_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_1150_resnet50_bs128_workers4_cpus4.csv"
@@ -3069,15 +2242,7 @@
             "expected_answer": "ResNet18 had the lowest maximum power draw at 267.78 W.",
             "accepted_answer_contains": [
                 "ResNet18 had the lowest maximum power draw at 267.78 W.",
-                "ResNet18 had the lowest maximum power draw at 267.78 W",
-                "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv",
-                "ResNet18 had the lowest maximum power draw",
-                "267.78 W",
-                "ResNet18 had the lowest",
-                "ResNet18 had the lowest maximum",
-                "ResNet18 had the lowest maximum power",
-                "ResNet18 had the lowest maximum power draw at",
-                "ResNet18"
+                "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv"
@@ -3100,15 +2265,7 @@
             "expected_answer": "ResNet152 had the highest average GPU temperature at 64.1234 C.",
             "accepted_answer_contains": [
                 "ResNet152 had the highest average GPU temperature at 64.1234 C.",
-                "ResNet152 had the highest average GPU temperature at 64.1234 C",
-                "evidence/results/gpu_summary_1147_resnet152_bs64_workers4_cpus4.csv",
-                "ResNet152 had the highest average GPU temperature",
-                "64.1234 C",
-                "ResNet152 had the highest",
-                "ResNet152 had the highest average",
-                "ResNet152 had the highest average GPU",
-                "ResNet152 had the highest average GPU temperature at",
-                "ResNet152"
+                "evidence/results/gpu_summary_1147_resnet152_bs64_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_1147_resnet152_bs64_workers4_cpus4.csv"
@@ -3131,15 +2288,7 @@
             "expected_answer": "ResNet34 benchmark had the lowest average GPU temperature at 54.3726 C.",
             "accepted_answer_contains": [
                 "ResNet34 benchmark had the lowest average GPU temperature at 54.3726 C.",
-                "ResNet34 benchmark had the lowest average GPU temperature at 54.3726 C",
-                "evidence/results/gpu_summary_1149_resnet34_bs128_workers4_cpus4.csv",
-                "ResNet34 benchmark had the lowest average GPU temperature at 54.3726",
-                "ResNet34 benchmark had the lowest average GPU temperature",
-                "54.3726 C",
-                "ResNet34 benchmark had",
-                "ResNet34 benchmark had the lowest",
-                "ResNet34 benchmark had the lowest average",
-                "ResNet34"
+                "evidence/results/gpu_summary_1149_resnet34_bs128_workers4_cpus4.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_1149_resnet34_bs128_workers4_cpus4.csv"
@@ -3162,14 +2311,7 @@
             "expected_answer": "ResNet18 exceeded ResNet50 by 12.10 percentage points in final test top-1 accuracy.",
             "accepted_answer_contains": [
                 "ResNet18 exceeded ResNet50 by 12.10 percentage points in final test top-1 accuracy.",
-                "ResNet18 exceeded ResNet50 by 12.10 percentage points in final test top-1 accuracy",
-                "evidence/results/comparison.csv",
-                "ResNet18 exceeded ResNet50 by 12.10 percentage points in final test",
-                "ResNet18 exceeded ResNet50",
-                "12.10 percentage points",
-                "ResNet18 exceeded ResNet50 by 12.10",
-                "ResNet18 exceeded ResNet50 by 12.10 percentage",
-                "ResNet18 exceeded ResNet50 by 12.10 percentage points"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -3192,16 +2334,7 @@
             "expected_answer": "ResNet18 was about 7.86 times faster than ResNet152 by average samples per second.",
             "accepted_answer_contains": [
                 "ResNet18 was about 7.86 times faster than ResNet152 by average samples per second.",
-                "ResNet18 was about 7.86 times faster than ResNet152 by average samples per second",
-                "evidence/results/comparison.csv",
-                "ResNet18 was about 7.86 times faster than ResNet152 by average",
-                "ResNet18 was about 7.86 times faster than ResNet152",
-                "about 7.86 times",
-                "ResNet18 was about 7.86",
-                "ResNet18 was about 7.86 times",
-                "ResNet18 was about 7.86 times faster",
-                "highest throughput",
-                "best throughput"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -3224,13 +2357,7 @@
             "expected_answer": "ResNet50 used 3106 MB more maximum nvidia-smi memory than ResNet18.",
             "accepted_answer_contains": [
                 "ResNet50 used 3106 MB more maximum nvidia-smi memory than ResNet18.",
-                "ResNet50 used 3106 MB more maximum nvidia-smi memory than ResNet18",
-                "evidence/results/comparison.csv",
-                "3106 MB",
-                "ResNet50 used 3106 MB",
-                "ResNet50 used 3106 MB more",
-                "ResNet50 used 3106 MB more maximum",
-                "ResNet50 used 3106 MB more maximum nvidia-smi memory"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -3253,18 +2380,7 @@
             "expected_answer": "No, ResNet101 reached 66.92% versus ResNet34's 66.67%, a very small gain with much lower throughput and higher memory.",
             "accepted_answer_contains": [
                 "No, ResNet101 reached 66.92% versus ResNet34's 66.67%, a very small gain with much lower throughput and higher memory.",
-                "No, ResNet101 reached 66.92% versus ResNet34's 66.67%, a very small gain with much lower throughput and higher memory",
-                "evidence/results/comparison.csv",
-                "No, ResNet101 reached 66.92% versus ResNet34's 66.67%, a very small",
-                "66.92%",
-                "66.67%",
-                "ResNet101 reached 66.92% versus ResNet34's 66.67%",
-                "a very small gain with much lower throughput",
-                "higher memory",
-                "No, ResNet101 reached 66.92%",
-                "No, ResNet101 reached 66.92% versus",
-                "No, ResNet101 reached 66.92% versus ResNet34's",
-                "No, ResNet101 reached 66.92% versus ResNet34's 66.67%"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -3287,15 +2403,7 @@
             "expected_answer": "ResNet18 gives the strongest evidence because it has the best test accuracy, best throughput, and lowest memory use among the compared runs.",
             "accepted_answer_contains": [
                 "ResNet18 gives the strongest evidence because it has the best test accuracy, best throughput, and lowest memory use among the compared runs.",
-                "ResNet18 gives the strongest evidence because it has the best test accuracy, best throughput, and lowest memory use among the compared runs",
-                "evidence/results/comparison.csv",
-                "ResNet18 gives the strongest evidence",
-                "ResNet18 gives the strongest evidence because it has the best test accuracy",
-                "best throughput",
-                "lowest memory use among the compared runs",
-                "ResNet18 gives the strongest",
-                "ResNet18 gives the strongest evidence because it has",
-                "ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -3318,20 +2426,10 @@
             "expected_answer": "Cannot be determined from the repository. The repository contains training code and benchmark outputs, but does not provide evidence identifying the exact PyTorch version used for the recorded runs.",
             "accepted_answer_contains": [
                 "Cannot be determined from the repository. The repository contains training code and benchmark outputs, but does not provide evidence identifying the exact PyTorch version used for the recorded runs.",
-                "Cannot be determined from the repository. The repository contains training code and benchmark outputs, but does not provide evidence identifying the exact PyTorch version used for the recorded runs",
                 "evidence/repo/src/train.py",
                 "evidence/results/comparison.csv",
-                "Cannot be determined from the repository. The repository contains training",
                 "Cannot be determined",
-                "Cannot be determined from the repository. The repository contains training code",
-                "but does not provide evidence identifying the exact PyTorch version used for the recorded runs",
-                "Cannot be determined from the repository",
-                "Cannot be determined from the repository. The repository",
-                "not enough evidence",
-                "insufficient evidence",
-                "not recorded",
-                "no evidence",
-                "no benchmark results"
+                "Cannot be determined from the repository"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/train.py",
@@ -3363,19 +2461,10 @@
             "expected_answer": "Cannot be determined from the repository. CPU allocation settings are present, but the benchmark artifacts do not record the CPU hardware model.",
             "accepted_answer_contains": [
                 "Cannot be determined from the repository. CPU allocation settings are present, but the benchmark artifacts do not record the CPU hardware model.",
-                "Cannot be determined from the repository. CPU allocation settings are present, but the benchmark artifacts do not record the CPU hardware model",
                 "evidence/repo/slurm/train-one.slurm",
                 "evidence/results/",
-                "Cannot be determined from the repository. CPU allocation settings are",
                 "Cannot be determined",
-                "Cannot be determined from the repository. CPU allocation settings are present",
-                "but the benchmark artifacts do not record the CPU hardware model",
-                "Cannot be determined from the repository",
-                "Cannot be determined from the repository. CPU allocation",
-                "not enough evidence",
-                "insufficient evidence",
-                "not recorded",
-                "no evidence"
+                "Cannot be determined from the repository"
             ],
             "required_evidence_files": [
                 "evidence/repo/slurm/train-one.slurm",
@@ -3407,19 +2496,9 @@
             "expected_answer": "Cannot be determined from repository evidence. The repository only contains results from the executed benchmark runs and does not include a 300-epoch comparison.",
             "accepted_answer_contains": [
                 "Cannot be determined from repository evidence. The repository only contains results from the executed benchmark runs and does not include a 300-epoch comparison.",
-                "Cannot be determined from repository evidence. The repository only contains results from the executed benchmark runs and does not include a 300-epoch comparison",
                 "evidence/results/comparison.csv",
-                "Cannot be determined from repository evidence. The repository only contains",
                 "Cannot be determined",
-                "Cannot be determined from repository evidence. The repository only contains results from the executed benchmark runs",
-                "does not include a 300-epoch comparison",
-                "Cannot be determined from repository",
-                "Cannot be determined from repository evidence",
-                "Cannot be determined from repository evidence. The repository",
-                "not enough evidence",
-                "insufficient evidence",
-                "not recorded",
-                "no evidence"
+                "Cannot be determined from the repository"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -3442,22 +2521,9 @@
             "expected_answer": "Cannot be determined from the repository. The benchmark provides single-run results but does not provide repeated trials, confidence intervals, or statistical significance tests.",
             "accepted_answer_contains": [
                 "Cannot be determined from the repository. The benchmark provides single-run results but does not provide repeated trials, confidence intervals, or statistical significance tests.",
-                "Cannot be determined from the repository. The benchmark provides single-run results but does not provide repeated trials, confidence intervals, or statistical significance tests",
                 "evidence/results/comparison.csv",
-                "Cannot be determined from the repository. The benchmark provides single-run",
                 "Cannot be determined",
-                "Cannot be determined from the repository. The benchmark provides single-run results but does not provide repeated trials",
-                "confidence intervals",
-                "or statistical significance tests",
-                "Cannot be determined from the repository",
-                "Cannot be determined from the repository. The benchmark",
-                "not enough evidence",
-                "insufficient evidence",
-                "not recorded",
-                "no evidence",
-                "single-run results",
-                "no repeated trials",
-                "no statistical significance tests"
+                "Cannot be determined from the repository"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -3480,20 +2546,10 @@
             "expected_answer": "Cannot be determined from repository evidence. The repository reports power statistics and runtime information but does not provide total measured energy consumption.",
             "accepted_answer_contains": [
                 "Cannot be determined from repository evidence. The repository reports power statistics and runtime information but does not provide total measured energy consumption.",
-                "Cannot be determined from repository evidence. The repository reports power statistics and runtime information but does not provide total measured energy consumption",
                 "evidence/results/comparison.csv",
                 "evidence/results/gpu_summary_*.csv",
-                "Cannot be determined from repository evidence. The repository reports power",
                 "Cannot be determined",
-                "Cannot be determined from repository evidence. The repository reports power statistics",
-                "runtime information but does not provide total measured energy consumption",
-                "Cannot be determined from repository",
-                "Cannot be determined from repository evidence",
-                "Cannot be determined from repository evidence. The repository",
-                "not enough evidence",
-                "insufficient evidence",
-                "not recorded",
-                "no evidence"
+                "Cannot be determined from the repository"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv",
@@ -3525,17 +2581,10 @@
             "expected_answer": "Cannot be determined from the repository. The repository shows the results of executed runs but does not contain controlled experiments comparing different random seeds.",
             "accepted_answer_contains": [
                 "Cannot be determined from the repository. The repository shows the results of executed runs but does not contain controlled experiments comparing different random seeds.",
-                "Cannot be determined from the repository. The repository shows the results of executed runs but does not contain controlled experiments comparing different random seeds",
                 "evidence/repo/src/utils/seed.py",
                 "evidence/results/comparison.csv",
-                "Cannot be determined from the repository. The repository shows",
                 "Cannot be determined",
-                "Cannot be determined from the repository",
-                "Cannot be determined from the repository. The repository",
-                "not enough evidence",
-                "insufficient evidence",
-                "not recorded",
-                "no evidence"
+                "Cannot be determined from the repository"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/seed.py",
@@ -3567,16 +2616,9 @@
             "expected_answer": "Cannot be determined from the repository. The benchmark artifacts do not identify the individual who executed the runs.",
             "accepted_answer_contains": [
                 "Cannot be determined from the repository. The benchmark artifacts do not identify the individual who executed the runs.",
-                "Cannot be determined from the repository. The benchmark artifacts do not identify the individual who executed the runs",
                 "evidence/results/",
-                "Cannot be determined from the repository. The benchmark artifacts do",
                 "Cannot be determined",
-                "Cannot be determined from the repository",
-                "Cannot be determined from the repository. The benchmark",
-                "not enough evidence",
-                "insufficient evidence",
-                "not recorded",
-                "no evidence"
+                "Cannot be determined from the repository"
             ],
             "required_evidence_files": [
                 "evidence/results/"
@@ -3599,12 +2641,7 @@
             "expected_answer": "No. The repository only provides evidence that ResNet18 performed best among the benchmarked runs in this repository. It does not compare against all possible CIFAR-100 architectures.",
             "accepted_answer_contains": [
                 "No. The repository only provides evidence that ResNet18 performed best among the benchmarked runs in this repository. It does not compare against all possible CIFAR-100 architectures.",
-                "No. The repository only provides evidence that ResNet18 performed best among the benchmarked runs in this repository. It does not compare against all possible CIFAR-100 architectures",
-                "evidence/results/comparison.csv",
-                "No. The repository only provides evidence that ResNet18 performed best",
-                "No. The repository only provides",
-                "No. The repository only provides evidence",
-                "No. The repository only provides evidence that ResNet18"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv"
@@ -3627,24 +2664,10 @@
             "expected_answer": "Cannot be determined from repository evidence. AMP is not used in the benchmark results and no AMP benchmark outcomes are provided.",
             "accepted_answer_contains": [
                 "Cannot be determined from repository evidence. AMP is not used in the benchmark results and no AMP benchmark outcomes are provided.",
-                "Cannot be determined from repository evidence. AMP is not used in the benchmark results and no AMP benchmark outcomes are provided",
                 "evidence/repo/src/utils/config.py",
                 "evidence/results/comparison.csv",
-                "Cannot be determined from repository evidence. AMP is not used",
                 "Cannot be determined",
-                "Cannot be determined from repository evidence. AMP is not used in the benchmark results",
-                "no AMP benchmark outcomes are provided",
-                "Cannot be determined from repository",
-                "Cannot be determined from repository evidence",
-                "Cannot be determined from repository evidence. AMP is",
-                "AMP must be false",
-                "AMP disabled",
-                "rejects AMP",
-                "not enough evidence",
-                "insufficient evidence",
-                "not recorded",
-                "no evidence",
-                "no benchmark results"
+                "Cannot be determined from the repository"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/utils/config.py",
@@ -3676,21 +2699,10 @@
             "expected_answer": "Cannot be determined from repository evidence. ResNet200 does not have benchmark results in the repository.",
             "accepted_answer_contains": [
                 "Cannot be determined from repository evidence. ResNet200 does not have benchmark results in the repository.",
-                "Cannot be determined from repository evidence. ResNet200 does not have benchmark results in the repository",
                 "evidence/repo/src/models/resnet.py",
                 "evidence/results/comparison.csv",
-                "Cannot be determined from repository evidence. ResNet200 does not have",
                 "Cannot be determined",
-                "Cannot be determined from repository",
-                "Cannot be determined from repository evidence",
-                "Cannot be determined from repository evidence. ResNet200 does",
-                "not enough evidence",
-                "insufficient evidence",
-                "not recorded",
-                "no evidence",
-                "no benchmark results",
-                "highest throughput",
-                "best throughput"
+                "Cannot be determined from the repository"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/resnet.py",
@@ -3722,21 +2734,8 @@
             "expected_answer": "The benchmark GPU summaries should be trusted because they are derived from recorded telemetry measurements, whereas the report is a secondary narrative artifact that may be outdated or incorrect.",
             "accepted_answer_contains": [
                 "The benchmark GPU summaries should be trusted because they are derived from recorded telemetry measurements, whereas the report is a secondary narrative artifact that may be outdated or incorrect.",
-                "benchmark GPU summaries should be trusted because they are derived from recorded telemetry measurements, whereas the report is a secondary narrative artifact that may be outdated or incorrect",
                 "evidence/results/gpu_summary_*.csv",
-                "evidence/results/performance_report.md",
-                "benchmark GPU summaries should be trusted",
-                "benchmark GPU summaries should be trusted because they are derived",
-                "benchmark GPU summaries should be trusted because they are derived from recorded telemetry measurements",
-                "the report is a secondary narrative artifact that may be outdated or incorrect",
-                "benchmark GPU summaries",
-                "benchmark GPU summaries should",
-                "benchmark GPU summaries should be",
-                "authoritative source",
-                "generated benchmark artifacts",
-                "benchmark evidence chain",
-                "measured telemetry",
-                "recorded measurements"
+                "evidence/results/performance_report.md"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_*.csv",
@@ -3744,7 +2743,7 @@
             ],
             "evidence": [
                 {
-                    "file": "evidence/repo/performance_report.md",
+                    "file": "evidence/results/performance_report.md",
                     "lines": [
                         1,
                         1
@@ -3776,26 +2775,10 @@
             "expected_answer": "`comparison.csv` should be considered authoritative because it is the benchmark comparison artifact generated from the benchmark pipeline, whereas `comparison_june.csv` is not part of the benchmark evidence chain.",
             "accepted_answer_contains": [
                 "`comparison.csv` should be considered authoritative because it is the benchmark comparison artifact generated from the benchmark pipeline, whereas `comparison_june.csv` is not part of the benchmark evidence chain.",
-                "`comparison.csv` should be considered authoritative because it is the benchmark comparison artifact generated from the benchmark pipeline, whereas `comparison_june.csv` is not part of the benchmark evidence chain",
                 "evidence/repo/src/compare_runs.py",
                 "evidence/results/comparison.csv",
                 "evidence/results/comparison_june.csv",
-                "comparison.csv should be considered authoritative because it is the benchmark comparison artifact generated from the benchmark pipeline, whereas comparison_june.csv is not part of the benchmark evidence chain",
-                "comparison.csv should be considered authoritative",
-                "comparison.csv should be considered authoritative because it is the benchmark comparison artifact generated",
-                "comparison.csv",
-                "comparison_june.csv",
-                "comparison.csv should be considered authoritative because it is the benchmark comparison artifact generated from the benchmark pipeline",
-                "comparison_june.csv is not part of the benchmark evidence chain",
-                "comparison.csv should be considered",
-                "comparison.csv should be considered authoritative because it is",
-                "authoritative source",
-                "generated benchmark artifacts",
-                "benchmark evidence chain",
-                "measured telemetry",
-                "recorded measurements",
-                "highest throughput",
-                "best throughput"
+                "comparison.csv should be considered authoritative because it is the benchmark comparison artifact generated from the benchmark pipeline, whereas comparison_june.csv is not part of the benchmark evidence chain."
             ],
             "required_evidence_files": [
                 "evidence/repo/src/compare_runs.py",
@@ -3836,15 +2819,8 @@
             "expected_answer": "No. Benchmark participation should be determined from benchmark artifacts and executed runs, not solely from a README listing.",
             "accepted_answer_contains": [
                 "No. Benchmark participation should be determined from benchmark artifacts and executed runs, not solely from a README listing.",
-                "No. Benchmark participation should be determined from benchmark artifacts and executed runs, not solely from a README listing",
                 "evidence/repo/src/models/README.md",
-                "evidence/results/comparison.csv",
-                "No. Benchmark participation should be determined from benchmark artifacts",
-                "No. Benchmark participation should be determined",
-                "not solely from a README listing",
-                "No. Benchmark participation should",
-                "No. Benchmark participation should be",
-                "No. Benchmark participation should be determined from benchmark"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/README.md",
@@ -3876,14 +2852,8 @@
             "expected_answer": "No. Debug summaries should not override benchmark summaries when answering benchmark-performance questions.",
             "accepted_answer_contains": [
                 "No. Debug summaries should not override benchmark summaries when answering benchmark-performance questions.",
-                "No. Debug summaries should not override benchmark summaries when answering benchmark-performance questions",
                 "evidence/results/gpu_summary_*.csv",
-                "evidence/results/gpu_summary_debug.csv",
-                "No. Debug summaries should not override benchmark summaries when answering",
-                "No. Debug summaries should",
-                "No. Debug summaries should not",
-                "No. Debug summaries should not override",
-                "No. Debug summaries should not override benchmark summaries"
+                "evidence/results/gpu_summary_debug.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_*.csv",
@@ -3891,7 +2861,7 @@
             ],
             "evidence": [
                 {
-                    "file": "evidence/repo/gpu_summary_debug.csv",
+                    "file": "evidence/results/gpu_summary_debug.csv",
                     "lines": [
                         1,
                         1
@@ -3923,18 +2893,8 @@
             "expected_answer": "Measured telemetry provides stronger evidence because it originates directly from collected runtime measurements.",
             "accepted_answer_contains": [
                 "Measured telemetry provides stronger evidence because it originates directly from collected runtime measurements.",
-                "Measured telemetry provides stronger evidence because it originates directly from collected runtime measurements",
                 "evidence/results/gpu_summary_*.csv",
-                "evidence/results/performance_report.md",
-                "Measured telemetry provides stronger evidence",
-                "Measured telemetry provides stronger evidence because it originates directly",
-                "Measured telemetry provides stronger",
-                "Measured telemetry provides stronger evidence because it originates",
-                "authoritative source",
-                "generated benchmark artifacts",
-                "benchmark evidence chain",
-                "measured telemetry",
-                "recorded measurements"
+                "evidence/results/performance_report.md"
             ],
             "required_evidence_files": [
                 "evidence/results/gpu_summary_*.csv",
@@ -3942,7 +2902,7 @@
             ],
             "evidence": [
                 {
-                    "file": "evidence/repo/performance_report.md",
+                    "file": "evidence/results/performance_report.md",
                     "lines": [
                         1,
                         1
@@ -3974,23 +2934,8 @@
             "expected_answer": "Benchmark artifacts and executed configurations should be used. Example scripts are not evidence of resources used in benchmark runs.",
             "accepted_answer_contains": [
                 "Benchmark artifacts and executed configurations should be used. Example scripts are not evidence of resources used in benchmark runs.",
-                "Benchmark artifacts and executed configurations should be used. Example scripts are not evidence of resources used in benchmark runs",
                 "evidence/repo/slurm/example.slurm",
-                "evidence/results/comparison.csv",
-                "Benchmark artifacts and executed configurations should be used. Example scripts",
-                "executed configurations should be used. Example scripts are not evidence of resources used in benchmark runs",
-                "Benchmark artifacts and executed",
-                "Benchmark artifacts and executed configurations",
-                "Benchmark artifacts and executed configurations should",
-                "Benchmark artifacts and executed configurations should be used",
-                "num_workers must not exceed cpus_per_task",
-                "worker count exceeds CPU allocation",
-                "actual Slurm CPU allocation",
-                "authoritative source",
-                "generated benchmark artifacts",
-                "benchmark evidence chain",
-                "measured telemetry",
-                "recorded measurements"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/repo/slurm/example.slurm",
@@ -4022,19 +2967,8 @@
             "expected_answer": "Benchmark outputs determine whether ResNet200 was benchmarked. Support for a model does not imply that a benchmark run was executed.",
             "accepted_answer_contains": [
                 "Benchmark outputs determine whether ResNet200 was benchmarked. Support for a model does not imply that a benchmark run was executed.",
-                "Benchmark outputs determine whether ResNet200 was benchmarked. Support for a model does not imply that a benchmark run was executed",
                 "evidence/repo/src/models/README.md",
-                "evidence/results/comparison.csv",
-                "Benchmark outputs determine whether ResNet200 was benchmarked. Support for",
-                "Benchmark outputs determine whether",
-                "Benchmark outputs determine whether ResNet200",
-                "Benchmark outputs determine whether ResNet200 was",
-                "Benchmark outputs determine whether ResNet200 was benchmarked. Support",
-                "authoritative source",
-                "generated benchmark artifacts",
-                "benchmark evidence chain",
-                "measured telemetry",
-                "recorded measurements"
+                "evidence/results/comparison.csv"
             ],
             "required_evidence_files": [
                 "evidence/repo/src/models/README.md",
@@ -4066,21 +3000,8 @@
             "expected_answer": "Generated benchmark artifacts should be preferred because they are directly derived from benchmark execution outputs.",
             "accepted_answer_contains": [
                 "Generated benchmark artifacts should be preferred because they are directly derived from benchmark execution outputs.",
-                "Generated benchmark artifacts should be preferred because they are directly derived from benchmark execution outputs",
                 "evidence/results/comparison.csv",
-                "evidence/results/performance_report.md",
-                "Generated benchmark artifacts should be preferred",
-                "Generated benchmark artifacts should be preferred because they are directly derived",
-                "Generated benchmark artifacts should",
-                "Generated benchmark artifacts should be",
-                "Generated benchmark artifacts should be preferred because they",
-                "authoritative source",
-                "generated benchmark artifacts",
-                "benchmark evidence chain",
-                "measured telemetry",
-                "recorded measurements",
-                "highest throughput",
-                "best throughput"
+                "evidence/results/performance_report.md"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv",
@@ -4088,7 +3009,7 @@
             ],
             "evidence": [
                 {
-                    "file": "evidence/repo/performance_report.md",
+                    "file": "evidence/results/performance_report.md",
                     "lines": [
                         1,
                         1
@@ -4120,18 +3041,8 @@
             "expected_answer": "The benchmark training summaries should be trusted because they are generated from executed runs, whereas draft files are not authoritative benchmark outputs.",
             "accepted_answer_contains": [
                 "The benchmark training summaries should be trusted because they are generated from executed runs, whereas draft files are not authoritative benchmark outputs.",
-                "benchmark training summaries should be trusted because they are generated from executed runs, whereas draft files are not authoritative benchmark outputs",
                 "evidence/results/draft_runtime.csv",
-                "evidence/results/training_summary_*.csv",
-                "benchmark training summaries should be trusted",
-                "benchmark training summaries should be trusted because they are generated",
-                "benchmark training summaries should be trusted because they are generated from executed runs",
-                "draft files are not authoritative benchmark outputs",
-                "authoritative source",
-                "generated benchmark artifacts",
-                "benchmark evidence chain",
-                "measured telemetry",
-                "recorded measurements"
+                "evidence/results/training_summary_*.csv"
             ],
             "required_evidence_files": [
                 "evidence/results/draft_runtime.csv",
@@ -4139,7 +3050,7 @@
             ],
             "evidence": [
                 {
-                    "file": "evidence/repo/draft_runtime.csv",
+                    "file": "evidence/results/draft_runtime.csv",
                     "lines": [
                         1,
                         1
@@ -4171,21 +3082,10 @@
             "expected_answer": "Conclusions supported by the benchmark evidence chain (raw measurements → summaries → generated comparison outputs) should be preferred over unsupported narrative or draft artifacts.",
             "accepted_answer_contains": [
                 "Conclusions supported by the benchmark evidence chain (raw measurements → summaries → generated comparison outputs) should be preferred over unsupported narrative or draft artifacts.",
-                "Conclusions supported by the benchmark evidence chain (raw measurements → summaries → generated comparison outputs) should be preferred over unsupported narrative or draft artifacts",
                 "evidence/results/comparison.csv",
                 "evidence/results/gpu_summary_*.csv",
                 "evidence/results/gpu_timeline_*.csv",
-                "evidence/results/performance_report.md",
-                "Conclusions supported by the benchmark evidence chain (raw measurements →",
-                "Conclusions supported",
-                "Conclusions supported by the benchmark",
-                "Conclusions supported by the benchmark evidence",
-                "Conclusions supported by the benchmark evidence chain (raw",
-                "authoritative source",
-                "generated benchmark artifacts",
-                "benchmark evidence chain",
-                "measured telemetry",
-                "recorded measurements"
+                "evidence/results/performance_report.md"
             ],
             "required_evidence_files": [
                 "evidence/results/comparison.csv",
@@ -4219,7 +3119,7 @@
                     "reason": "Generated benchmark comparison."
                 },
                 {
-                    "file": "evidence/repo/performance_report.md",
+                    "file": "evidence/results/performance_report.md",
                     "lines": [
                         1,
                         1
