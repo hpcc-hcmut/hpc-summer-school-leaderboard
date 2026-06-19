@@ -1,0 +1,148 @@
+{
+    "main_entrypoint": {
+        "accepted": [
+            "evidence/repo/src/train.py",
+            "src/train.py",
+            "train.py"
+        ],
+        "points": 5
+    },
+    "framework": {
+        "accepted": [
+            "pytorch",
+            "torch",
+            "torchvision",
+            "pytorch/torchvision",
+            "pytorch torchvision"
+        ],
+        "points": 5
+    },
+    "workload_type": {
+        "accepted": [
+            "deep_learning_training",
+            "deep_learning",
+            "image_classification_training",
+            "image_classification",
+            "training"
+        ],
+        "points": 3
+    },
+    "model_family": {
+        "accepted": [
+            "custom cifar resnet",
+            "cifar resnet",
+            "resnet",
+            "resnet18",
+            "resnet34",
+            "resnet50",
+            "resnet101",
+            "resnet152",
+            "resnet-18",
+            "resnet-34",
+            "resnet-50",
+            "resnet-101",
+            "resnet-152"
+        ],
+        "points": 3
+    },
+    "dataset_type": {
+        "accepted": [
+            "cifar-100 imagefolder",
+            "cifar100 imagefolder",
+            "cifar100_imagefolder",
+            "image_folder",
+            "imagefolder",
+            "imagenet_style",
+            "torchvision imagefolder"
+        ],
+        "points": 3
+    },
+    "uses_gpu": {
+        "accepted": [
+            true
+        ],
+        "points": 2
+    },
+    "primary_bottleneck": {
+        "accepted": [
+            "gpu_compute",
+            "compute",
+            "gpu",
+            "gpu_utilization",
+            "cuda_compute"
+        ],
+        "points": 8
+    },
+    "recommended_gpu_count": {
+        "accepted": [
+            1
+        ],
+        "points": 5
+    },
+    "recommended_cpus_per_task": {
+        "min": 4,
+        "max": 4,
+        "points": 3
+    },
+    "recommended_time_limit_minutes": {
+        "min": 20,
+        "max": 60,
+        "points": 2
+    },
+    "required_evidence_files": [
+        "evidence/repo/src/train.py",
+        "evidence/repo/slurm/train-one.slurm",
+        "evidence/repo/src/data/datasets.py",
+        "evidence/repo/src/data/prepare_cifar100_imagefolder.py",
+        "evidence/repo/src/models/resnet.py",
+        "evidence/repo/src/models/registry.py",
+        "evidence/repo/src/utils/config.py",
+        "evidence/repo/src/engine/trainer.py",
+        "evidence/repo/src/utils/metrics.py",
+        "evidence/repo/slurm/run-benchmark-array.slurm",
+        "evidence/results/comparison.csv",
+        "evidence/results/gpu_summary_1148_resnet18_bs128_workers4_cpus4.csv",
+        "evidence/repo/slurm/prepare-data.slurm",
+        "evidence/repo/src/data/transforms.py",
+        "evidence/repo/src/utils/slurm.py",
+        "evidence/repo/src/utils/seed.py",
+        "evidence/repo/src/engine/checkpointing.py",
+        "evidence/repo/src/summarize_gpu_log.py",
+        "evidence/repo/src/compare_runs.py",
+        "evidence/repo/slurm/compare-runs.slurm",
+        "evidence/results/training_summary_1147_resnet152_bs64_workers4_cpus4.csv",
+        "evidence/results/training_summary_1148_resnet18_bs128_workers4_cpus4.csv",
+        "evidence/results/gpu_summary_1147_resnet152_bs64_workers4_cpus4.csv",
+        "evidence/results/gpu_summary_1150_resnet50_bs128_workers4_cpus4.csv",
+        "evidence/results/gpu_summary_1149_resnet34_bs128_workers4_cpus4.csv",
+        "evidence/results/",
+        "evidence/results/gpu_summary_*.csv",
+        "evidence/results/performance_report.md",
+        "evidence/results/comparison_june.csv",
+        "evidence/repo/src/models/README.md",
+        "evidence/results/gpu_summary_debug.csv",
+        "evidence/repo/slurm/example.slurm",
+        "evidence/results/draft_runtime.csv",
+        "evidence/results/training_summary_*.csv",
+        "evidence/results/gpu_timeline_*.csv"
+    ],
+    "forbidden_claims": [
+        "requires A100",
+        "requires an A100",
+        "A100 is required",
+        "requires V100",
+        "requires a V100",
+        "V100 is required",
+        "requires H100",
+        "requires an H100",
+        "H100 is required",
+        "requires multi-GPU",
+        "requires multi GPU",
+        "requires multiple GPUs",
+        "multi-GPU is required",
+        "exact VRAM can be determined from source code alone",
+        "GPU is always the bottleneck",
+        "CPU data loading is the primary bottleneck",
+        "storage I/O is the primary bottleneck"
+    ]
+}

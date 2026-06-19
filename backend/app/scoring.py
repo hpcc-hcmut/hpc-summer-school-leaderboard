@@ -457,6 +457,20 @@ def score_workflow(metadata: dict, trace: dict) -> tuple[float, list[str]]:
 # 4. HPC/resource efficiency — 15 points
 # ---------------------------------------------------------------------------
 
+RUNTIME_TARGET_SEC = 300  # 5 minutes — submissions should finish within this window
+
+
+def runtime_penalty(runtime_sec: float | None) -> tuple[float, str | None]:
+    """Heavy penalty applied to final score when runtime exceeds 5 minutes."""
+    if runtime_sec is None or runtime_sec <= RUNTIME_TARGET_SEC:
+        return 0.0, None
+    if runtime_sec <= 600:
+        return 15.0, f"Runtime over 5 min ({runtime_sec:.0f}s) (-15)"
+    if runtime_sec <= 900:
+        return 25.0, f"Runtime over 10 min ({runtime_sec:.0f}s) (-25)"
+    return 35.0, f"Runtime over 15 min ({runtime_sec:.0f}s) (-35)"
+
+
 def score_efficiency(metadata: dict) -> tuple[float, list[str]]:
     score = 0.0
     msgs: list[str] = []
@@ -469,19 +483,14 @@ def score_efficiency(metadata: dict) -> tuple[float, list[str]]:
     models_used = metadata.get("models_used") or []
     model_roles = metadata.get("model_roles") or []
 
-    # Runtime — max 5 pts
+    # Runtime — max 5 pts (only awarded within the 5-minute target)
     if runtime is not None:
-        if runtime <= 300:
+        if runtime <= RUNTIME_TARGET_SEC:
             score += 5.0
-            msgs.append("Excellent runtime (<=300s) (+5)")
-        elif runtime <= 600:
-            score += 3.0
-            msgs.append("Good runtime (<=600s) (+3)")
-        elif runtime <= 900:
-            score += 1.0
-            msgs.append("Acceptable runtime (<=900s) (+1)")
+            msgs.append(f"Excellent runtime (<={RUNTIME_TARGET_SEC}s) (+5)")
         else:
-            msgs.append(f"Runtime too long ({runtime:.0f}s)")
+            penalty, penalty_msg = runtime_penalty(runtime)
+            msgs.append(penalty_msg or f"Runtime too long ({runtime:.0f}s)")
     else:
         msgs.append("No runtime reported")
 
@@ -556,6 +565,11 @@ def score_submission(submission: dict) -> tuple[dict, list[str]]:
 
     # Rebalanced score
     final_score = qa_score + (c_score * 25.0 / 40.0) + (e_score * 15.0 / 25.0) + (w_score * 12.0 / 20.0) + (ef_score * 8.0 / 15.0)
+
+    penalty, penalty_msg = runtime_penalty(metadata.get("runtime_sec"))
+    if penalty > 0:
+        final_score = max(0.0, final_score - penalty)
+
     final_score = round(final_score, 2)
 
     breakdown = {
@@ -565,10 +579,13 @@ def score_submission(submission: dict) -> tuple[dict, list[str]]:
         "efficiency": ef_score,
         "legacy_score": legacy_score,
         "qa_score": qa_score,
+        "runtime_penalty": penalty,
         "final_score": final_score,
         "qa_details": qa_details,
         "total": final_score,
     }
 
     all_msgs = c_msgs + e_msgs + w_msgs + ef_msgs
+    if penalty_msg:
+        all_msgs.append(penalty_msg)
     return breakdown, all_msgs

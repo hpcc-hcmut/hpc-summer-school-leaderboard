@@ -29,6 +29,19 @@ def migrate_db(session: Session):
     session.commit()
 
 
+def _apply_score_to_submission(sub: Submission, breakdown: dict, messages: list[str]) -> None:
+    sub.total_score = breakdown["total"]
+    sub.legacy_score = breakdown["legacy_score"]
+    sub.qa_score = breakdown["qa_score"]
+    sub.final_score = breakdown["final_score"]
+    sub.qa_details_json = json.dumps(breakdown["qa_details"])
+    sub.correctness_score = breakdown["correctness"]
+    sub.evidence_score = breakdown["evidence"]
+    sub.workflow_score = breakdown["workflow"]
+    sub.efficiency_score = breakdown["efficiency"]
+    sub.messages_json = json.dumps(messages)
+
+
 def backfill_submissions(session: Session):
     """Backfill missing scores for existing submissions in the database."""
     statement = select(Submission).where(Submission.final_score == None)
@@ -40,23 +53,29 @@ def backfill_submissions(session: Session):
         try:
             raw = json.loads(sub.raw_submission_json)
             breakdown, messages = score_submission(raw)
-            
-            sub.total_score = breakdown["total"]
-            sub.legacy_score = breakdown["legacy_score"]
-            sub.qa_score = breakdown["qa_score"]
-            sub.final_score = breakdown["final_score"]
-            sub.qa_details_json = json.dumps(breakdown["qa_details"])
-            
-            # Update breakdown scores
-            sub.correctness_score = breakdown["correctness"]
-            sub.evidence_score = breakdown["evidence"]
-            sub.workflow_score = breakdown["workflow"]
-            sub.efficiency_score = breakdown["efficiency"]
-            
+            _apply_score_to_submission(sub, breakdown, messages)
             session.add(sub)
         except Exception as e:
             print(f"Failed to backfill submission {sub.id}: {e}")
-            
+
+    session.commit()
+
+
+def rescore_all_submissions(session: Session):
+    """Re-score every non-deleted submission (e.g. after rubric changes)."""
+    results = session.exec(select(Submission).where(Submission.is_deleted == 0)).all()
+    if not results:
+        return
+
+    for sub in results:
+        try:
+            raw = json.loads(sub.raw_submission_json)
+            breakdown, messages = score_submission(raw)
+            _apply_score_to_submission(sub, breakdown, messages)
+            session.add(sub)
+        except Exception as e:
+            print(f"Failed to rescore submission {sub.id}: {e}")
+
     session.commit()
 
 
@@ -67,6 +86,7 @@ async def lifespan(app: FastAPI):
         migrate_db(session)
         seed_teams(session)
         backfill_submissions(session)
+        rescore_all_submissions(session)
     yield
 
 
