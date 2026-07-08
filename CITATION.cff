@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite the associated EduHPC Peachy assignment paper."
+title: "A Slurm-Based Multi-Agent LLM Hackathon for Teaching Evidence-Grounded AI/HPC Workflows"
+authors:
+  - given-names: "Thanh"
+    family-names: "Hoang Le Hai"
+  - given-names: "Huy"
+    family-names: "Nguyen Tuan"
+  - given-names: "Nhan"
+    family-names: "Nguyen Phuc"
+  - given-names: "Duong"
+    family-names: "Nguyen Anh"
+  - given-names: "Nam"
+    family-names: "Thoai"

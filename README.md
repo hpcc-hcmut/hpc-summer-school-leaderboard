@@ -1,6 +1,22 @@
 # HPC Summer School Mini Hackathon Leaderboard
 
-A live leaderboard system for the HCMUT HPC Summer School mini hackathon.
+> **Note**: This is the instructor-facing package for the EduHPC Peachy assignment.
+
+This repository provides a live leaderboard system, scoring backend, team-token authentication, API contract, ground-truth files, and admin tools for the HCMUT HPC Summer School mini hackathon.
+
+**Two-Package Artifact System:**
+- **Student-facing repo** (`https://github.com/hpcc-hcmut/hpc-school-mini-hackathon`): Used by students for workflow design, evidence generation, and submission generation.
+- **Instructor-facing repo** (this repository): Used by instructors for scoring, leaderboard hosting, administration, and ground-truth validation.
+
+**⚠️ IMPORTANT ⚠️**
+Private questions and ground-truth materials (in `backend/ground_truth`) should **not** be shared with students during a live event.
+
+## Instructor Documentation
+Please refer to the following guides for detailed instructions on running a live event:
+- [Instructor Guide](INSTRUCTOR_GUIDE.md)
+- [Scoring Guide](SCORING_GUIDE.md)
+- [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
+- [Privacy Guidelines](PRIVACY.md)
 
 ## Architecture
 
@@ -15,10 +31,10 @@ Slurm Job → POST /api/submissions → Backend
 
 ```bash
 git clone <repo>
-cd hpc-hackathon-leaderboard
+cd hpc-summer-school-leaderboard
 
 cp .env.example .env
-# Edit .env — set ADMIN_PASSWORD and ADMIN_JWT_SECRET
+# Edit .env — set ADMIN_PASSWORD, ADMIN_JWT_SECRET, and configure team tokens
 nano .env
 ```
 
@@ -29,14 +45,21 @@ docker compose build
 docker compose up -d
 ```
 
-### 3. Verify
+### 3. Verify Deployment
 
 ```bash
+# Check if containers are running
 docker compose ps
+
+# Check backend health
 curl http://localhost:8000/api/health
 ```
 
-Open the leaderboard: http://localhost:3000
+### 4. Admin & Testing
+
+- Open the frontend: http://localhost:3000
+- Use a team token from `.env` to test one baseline submission (see [Team Submission](#team-submission-from-slurm-job)).
+- Log in to the Admin dashboard to manage submissions.
 
 ---
 

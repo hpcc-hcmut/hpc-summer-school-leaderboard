@@ -10,6 +10,7 @@
 node_modules/
 .next/
 out/
+*.tsbuildinfo
 build/
 .pnp
 .pnp.js
