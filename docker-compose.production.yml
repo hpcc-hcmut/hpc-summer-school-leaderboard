@@ -9,6 +9,10 @@ services:
       DATABASE_URL: "sqlite:////data/leaderboard.db"
       ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
       ADMIN_JWT_SECRET: "${ADMIN_JWT_SECRET}"
+      APP_ENV: "production"
+      DATASETS: "${DATASETS:-public}"
+      GROUND_TRUTH_PATH: "${GROUND_TRUTH_PATH:-}"
+      GROUND_TRUTH_QA_PATH: "${GROUND_TRUTH_QA_PATH:-}"
       CORS_ORIGINS: "${CORS_ORIGINS:-http://localhost:3000}"
       TEAMS_SEED_JSON: "${TEAMS_SEED_JSON}"
     volumes:

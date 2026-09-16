@@ -1,12 +1,10 @@
 """
 Scoring module for the HPC hackathon leaderboard.
 
-Rubric:
-  Correctness of analysis       40
-  Evidence grounding            25
-  Agentic workflow design       20
-  HPC/resource efficiency       15
-  Total                        100
+The final score combines a 40-point per-question QA component with rebalanced
+legacy components (25 correctness, 15 evidence, 12 workflow, 8 efficiency),
+then applies the runtime penalty. The original 40/25/20/15 subtotal is retained
+as ``legacy_score`` for auditability.
 """
 
 import json

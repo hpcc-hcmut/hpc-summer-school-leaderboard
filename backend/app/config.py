@@ -15,8 +15,8 @@ _QA_PATHS = {
 
 class Settings(BaseSettings):
     database_url: str = "sqlite:////data/leaderboard.db"
-    admin_password: str = "hpcc@school"
-    admin_jwt_secret: str = "change-me-secret"
+    admin_password: str = "<change-me-admin-password>"
+    admin_jwt_secret: str = "<random-jwt-secret>"
     admin_jwt_expire_minutes: int = 720
     benchmark_repo_index_path: str = "/app/ground_truth/repo_index.json"
     ground_truth_path: str = ""
@@ -25,13 +25,31 @@ class Settings(BaseSettings):
     teams_seed_json: str = ""
     max_submissions_per_team: int = 10
     datasets: str = "public"
+    app_env: str = "development"
 
     @model_validator(mode="after")
     def resolve_dataset_paths(self) -> "Settings":
-        if not self.ground_truth_path:
-            self.ground_truth_path = _GT_PATHS.get(self.datasets, _GT_PATHS["public"])
-        if not self.ground_truth_qa_path:
-            self.ground_truth_qa_path = _QA_PATHS.get(self.datasets, _QA_PATHS["public"])
+        self.datasets = self.datasets.strip().lower()
+        if self.datasets not in {"public", "private", "custom"}:
+            raise ValueError("DATASETS must be public, private, or custom")
+        if self.datasets == "custom":
+            if not self.ground_truth_path or not self.ground_truth_qa_path:
+                raise ValueError(
+                    "custom DATASETS requires GROUND_TRUTH_PATH and GROUND_TRUTH_QA_PATH"
+                )
+        else:
+            if not self.ground_truth_path:
+                self.ground_truth_path = _GT_PATHS[self.datasets]
+            if not self.ground_truth_qa_path:
+                self.ground_truth_qa_path = _QA_PATHS[self.datasets]
+
+        if self.app_env.strip().lower() == "production":
+            weak_passwords = {"", "change-me-admin-password", "<change-me-admin-password>"}
+            weak_jwt_secrets = {"", "change-me-long-random-secret-at-least-32-chars", "<random-jwt-secret>"}
+            if self.admin_password in weak_passwords:
+                raise ValueError("Set a non-placeholder ADMIN_PASSWORD for production")
+            if self.admin_jwt_secret in weak_jwt_secrets or len(self.admin_jwt_secret) < 32:
+                raise ValueError("Set a random ADMIN_JWT_SECRET of at least 32 characters for production")
         return self
 
     class Config:

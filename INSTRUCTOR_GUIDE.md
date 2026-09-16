@@ -21,6 +21,13 @@ Before the main event, students should be comfortable with:
 - [ ] Share the [student repository](https://github.com/hpcc-hcmut/hpc-school-mini-hackathon) with participants.
 - [ ] Test one baseline submission end-to-end to ensure the scoring backend and leaderboard are functioning correctly.
 
+Set `DATASETS=public` for artifact review and demonstrations (the default). For a
+live event, set `DATASETS=private` and keep the instructor repository and server
+configuration inaccessible to students. For a custom workload, set
+`DATASETS=custom`, set both ground-truth path variables, and mount those files
+into the backend container. Never place live private questions in the student
+repository.
+
 ## During Event
 - **Distribute Credentials**: Hand out team IDs and tokens securely.
 - **Initial Verification**: Ask students to run a mock or baseline submission first to confirm their setup is working.
@@ -31,3 +38,34 @@ Before the main event, students should be comfortable with:
 - **Review**: Go over the top submissions with the class.
 - **Discussion**: Discuss evidence quality, grounding, and compare different agentic workflow designs.
 - **Archiving**: Archive only anonymized results. Do not keep raw student data or unanonymized leaderboard exports.
+
+## Release integration check
+
+From the A1 checkout, generate a public mock payload:
+
+```bash
+python3 src/hackathon_workflow.py \
+  --source-dir . \
+  --config configs/hackathon_workflow.json \
+  --output-dir results \
+  --team-id test-team \
+  --team-name "Test Team" \
+  --mock
+```
+
+From this A2 checkout, validate it before deployment:
+
+```bash
+PYTHONPATH=backend python3 - <<'PY'
+import json
+from app.schemas import SubmissionRequest
+with open('<path-to-a1>/results/hackathon_submission_local.json') as f:
+    SubmissionRequest.model_validate(json.load(f))
+print('schema: PASS')
+PY
+```
+
+Start the configured deployment, seed a non-production test team, then submit
+that same file with the `curl` command in `API_CONTRACT.md`. Confirm HTTP 200,
+`valid: true`, a score/breakdown, one persisted submission, and the test team on
+`GET /api/leaderboard`. Remove the test team/database before a live event.

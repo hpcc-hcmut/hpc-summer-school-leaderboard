@@ -17,6 +17,11 @@ Before making the repository or any clones public, verify the following:
 ## Before-Class Checklist
 Run through these steps shortly before the event begins:
 - [ ] Docker Compose builds and starts successfully (`docker compose up -d`).
+- [ ] `DATASETS` is explicitly `public`, `private`, or `custom`; `public` is the
+      artifact/demo default, while live events normally use `private`.
+- [ ] Production uses a unique admin password, a random JWT secret of at least
+      32 characters, and freshly generated team tokens. Placeholder values make
+      production startup fail closed.
 - [ ] Backend health check returns a success status (`curl http://localhost:8000/api/health`).
 - [ ] Frontend leaderboard loads correctly in a browser (`http://localhost:3000`).
 - [ ] Admin login works using the configured `ADMIN_PASSWORD`.

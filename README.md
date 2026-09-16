@@ -17,6 +17,7 @@ Please refer to the following guides for detailed instructions on running a live
 - [Scoring Guide](SCORING_GUIDE.md)
 - [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)
 - [Privacy Guidelines](PRIVACY.md)
+- [Public post-event survey instrument](evaluation/post_event_survey.md)
 
 ## Architecture
 
@@ -89,13 +90,10 @@ curl -X POST "http://<leaderboard-host>:8000/api/submissions" \
 
 ## Scoring Rubric
 
-| Category | Max Points |
-|---|---|
-| Correctness of analysis | 40 |
-| Evidence grounding | 25 |
-| Agentic workflow design | 20 |
-| HPC/resource efficiency | 15 |
-| **Total** | **100** |
+The current final score is QA (40 points) plus rebalanced correctness (25),
+evidence (15), workflow (12), and efficiency (8), followed by the implemented
+runtime penalty. The backend also records the legacy 40/25/20/15 subtotal for
+audit. See [SCORING_GUIDE.md](SCORING_GUIDE.md) for exact rules.
 
 ---
 
@@ -131,6 +129,9 @@ curl -X POST "http://<leaderboard-host>:8000/api/submissions" \
 | `ADMIN_PASSWORD` | Admin dashboard password |
 | `ADMIN_JWT_SECRET` | Secret for signing admin JWTs (min 32 chars) |
 | `TEAMS_SEED_JSON` | JSON array of `{team_id, team_name, token}` |
+| `DATASETS` | `public` (safe default), `private`, or `custom` |
+| `GROUND_TRUTH_PATH` | Custom legacy ground-truth path when `DATASETS=custom` |
+| `GROUND_TRUTH_QA_PATH` | Custom QA ground-truth path when `DATASETS=custom` |
 | `DATABASE_URL` | SQLite path (default: `sqlite:////data/leaderboard.db`) |
 | `CORS_ORIGINS` | Comma-separated allowed origins |
 | `BACKEND_INTERNAL_URL` | Internal URL for frontend→backend calls |
@@ -163,6 +164,8 @@ The SQLite database is persisted in a Docker named volume (`leaderboard_data`) a
 ## Limits
 
 - Max 10 submissions per team (HTTP 429 if exceeded)
-- Max submission size: 1 MB
 - Leaderboard polling interval: 3 seconds
 - Admin JWT expires: 12 hours
+
+No application-level 1 MB request limit is implemented in this release. Apply a
+proxy/server limit if a deployment requires one.

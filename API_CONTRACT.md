@@ -99,6 +99,22 @@ The JSON body represents the full execution details and final analysis generated
       "network_io": "string (optional)",
       "logging_checkpoint": "string (optional)"
     },
+    "answers": [
+      {
+        "question_id": "string (required)",
+        "difficulty": "string (optional)",
+        "question": "string (optional)",
+        "answer": "string (optional)",
+        "evidence": [
+          {
+            "file": "string (optional)",
+            "lines": [1, 2],
+            "reason": "string (optional)"
+          }
+        ],
+        "confidence": "string (optional)"
+      }
+    ],
     "evidence": [
       {
         "claim": "string (required)",
@@ -169,9 +185,28 @@ Upon submitting successfully, you will receive a breakdown of your score along w
     "Sequential workflow mode (no parallel bonus)",
     "Excellent runtime (<=300s) (+5)",
     "Efficient LLM calls (18) (+4)"
+  ],
+  "legacy_score": 88.0,
+  "qa_score": 36.0,
+  "final_score": 85.5,
+  "qa_details": [
+    {
+      "question_id": "public-q01",
+      "score": 1.6,
+      "max_score": 1.6,
+      "answer_ok": true,
+      "evidence_ok": true,
+      "submitted_evidence_files": ["evidence/repo/src/train.py"],
+      "required_evidence_files": ["evidence/repo/src/train.py"]
+    }
   ]
 }
 ```
+
+`score` is the same value as `final_score`. The four values in `breakdown` are
+the legacy category scores before rebalancing; use `qa_score`, `legacy_score`,
+and `qa_details` to audit how the final score was formed. See
+`SCORING_GUIDE.md` for the exact formula and runtime penalties.
 
 ---
 
@@ -188,111 +223,18 @@ Upon submitting successfully, you will receive a breakdown of your score along w
 
 ---
 
-## Python Integration Example
+## Submission example
 
-Here is a ready-to-use Python snippet to compile, validate, and upload your agent results at the end of a run.
+The paired public A1 workflow already creates a conforming payload. Set only
+real event credentials outside source control, then submit it as follows:
 
-```python
-import os
-import json
-import requests
-
-def send_score(answer_data, workflow_metadata, trace_summary=None):
-    """
-    Submits score to the leaderboard server.
-    Reads credentials from X_TEAM_ID and X_TEAM_TOKEN environment variables.
-    """
-    host = os.environ.get("LEADERBOARD_HOST", "localhost:8000")
-    team_id = os.environ.get("X_TEAM_ID")
-    team_token = os.environ.get("X_TEAM_TOKEN")
-    slurm_job_id = os.environ.get("SLURM_JOB_ID")
-
-    if not team_id or not team_token:
-        print("[-] Missing X_TEAM_ID or X_TEAM_TOKEN environment variables.")
-        return None
-
-    url = f"http://{host}/api/submissions"
-    
-    headers = {
-        "Content-Type": "application/json",
-        "X-Team-ID": team_id,
-        "X-Team-Token": team_token
-    }
-
-    payload = {
-        "team": {
-            "team_id": team_id,
-            "team_name": f"Team {team_id.replace('team', '')}",
-            "slurm_job_id": slurm_job_id
-        },
-        "workflow_metadata": workflow_metadata,
-        "answer": answer_data,
-        "trace_summary": trace_summary or {"agents": [], "parallel_groups": [], "verification": {}}
-    }
-
-    try:
-        response = requests.post(url, headers=headers, json=payload)
-        if response.status_code == 200:
-            print("[+] Submission successful!")
-            result = response.json()
-            print(f"    Submission ID: {result['submission_id']}")
-            print(f"    Score: {result['score']} (Rank: {result['rank']})")
-            print(f"    Messages: {', '.join(result['messages'])}")
-            return result
-        else:
-            print(f"[-] Submission failed with status {response.status_code}: {response.text}")
-            return None
-    except Exception as e:
-        print(f"[-] Error making request: {str(e)}")
-        return None
-
-# --- Usage Example ---
-if __name__ == "__main__":
-    # 1. Fill your answer details
-    sample_answer = {
-        "repository_summary": {
-            "main_entrypoint": "train.py",
-            "workload_type": "deep_learning",
-            "framework": "pytorch",
-            "model_family": "resnet",
-            "dataset_type": "images",
-            "uses_gpu": True
-        },
-        "resource_recommendation": {
-            "gpu_count": 1,
-            "cpus_per_task": 4,
-            "system_memory_gb": 16,
-            "time_limit": "01:00:00"
-        },
-        "bottleneck_analysis": {
-            "primary_bottleneck": "gpu_compute"
-        },
-        "evidence": [
-            {
-                "claim": "The code uses PyTorch with ResNet.",
-                "source_file": "train.py",
-                "confidence": "high"
-            }
-        ]
-    }
-
-    # 2. Fill workflow details
-    sample_metadata = {
-        "workflow_mode": "sequential",
-        "num_agents": 4,
-        "models_used": ["gpt-4o"],
-        "has_aggregator": True,
-        "has_verifier": True,
-        "llm_calls": 15,
-        "runtime_sec": 120.5,
-        "estimated_input_tokens": 12000,
-        "estimated_output_tokens": 4000
-    }
-
-    # Set temporary environment vars for testing
-    os.environ["LEADERBOARD_HOST"] = "localhost:8000"
-    os.environ["X_TEAM_ID"] = "team01"
-    os.environ["X_TEAM_TOKEN"] = "hpc-team01-gIPHExDrbwrpYtnXkkt1IQ" # Replace with actual token
-
-    send_score(sample_answer, sample_metadata)
+```bash
+curl -X POST "http://<leaderboard-host>:8000/api/submissions" \
+  -H "Content-Type: application/json" \
+  -H "X-Team-ID: <team-id>" \
+  -H "X-Team-Token: <team-token>" \
+  --data-binary @results/hackathon_submission_local.json
 ```
+
+Do not put team tokens in code, documentation examples, committed `.env` files,
+or student-visible repositories.
