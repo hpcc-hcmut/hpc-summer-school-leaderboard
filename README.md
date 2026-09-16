@@ -1,6 +1,9 @@
 # HPC Summer School Mini Hackathon Leaderboard
 
-> **Note**: This is the instructor-facing package for the EduHPC Peachy assignment.
+> **Public Release Note:** This is the instructor-facing scoring, leaderboard,
+> and evaluation package accompanying *An AI-Anchored Pathway into HPC Practice:
+> Design and Initial Evaluation of a Three-Day Summer School in Vietnam*
+> (EduHPC'26).
 
 This repository provides a live leaderboard system, scoring backend, team-token authentication, API contract, ground-truth files, and admin tools for the HCMUT HPC Summer School mini hackathon.
 
